@@ -9,6 +9,11 @@
   <p align="left">
     * 32GB RAM * Intel® Core™ i5-1340P * 1TB M.2 SSD
   </p>
+
+## Proxmox VE installation
+  <p align="left">
+    Can use <a href="https://www.youtube.com/watch?v=_u8qTN3cCnQ&t=1026s">this</a> link
+  </p>
   
 
 
