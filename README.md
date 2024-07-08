@@ -6,9 +6,9 @@
   </p>
 
 ## Hardware
-
-    * 32GB RAM
-    * Intel® Core™ i5-1340P
-    * 1TB M.2 SSD
+  <p align="left">
+    * 32GB RAM * Intel® Core™ i5-1340P * 1TB M.2 SSD
+  </p>
+  
 
 
