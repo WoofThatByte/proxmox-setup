@@ -2,7 +2,7 @@
 
 # Proxmox VE
   <p align="left">
-    The following steps guide you through the post installation of Proxmox VE. By this time I installed Proxmox 8.2, Kernel 6.8
+    The following steps guide you through the post installation of Proxmox VE. By this time I installed <code>Proxmox 8.2</code>, <code>Kernel 6.8</code>
   </p>
    <p align="left">
     <code>Plex</code> for me is running in an LXC in Docker together with other services like Tdarr that needs iGPU. I could not pass the iGPU to a VM by this time. I could only do it for the LXC.
