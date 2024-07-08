@@ -4,6 +4,9 @@
   <p align="left">
     The following steps guide you through the post installation of Proxmox VE. By this time I installed Proxmox 8.2, Kernel 6.8
   </p>
+   <p align="left">
+    Plex for me is running in an LXC in Docker together with other services like Tdarr that needs iGPU. I could not pass the iGPU to a VM by this time. I could only do it for the LXC.
+  </p>
 
 ## Hardware
   <p align="left">   
@@ -12,7 +15,7 @@
 
 ## Proxmox VE installation
   <p align="left">
-    Can use <a href="https://www.youtube.com/watch?v=_u8qTN3cCnQ&t=1026s">this</a> link. </br>
+    Can use <a href="https://www.youtube.com/watch?v=_u8qTN3cCnQ">this</a> link. </br>
     Internet connection when installing the Proxmox Ve is not necessary but it is helpful!
   </p>
 
@@ -33,5 +36,10 @@
         </br>
         * <code>resize2fs /dev/mapper/pve-root</code>
   </p>
+  
+## Create VM
+ Can use <a href="https://youtu.be/_u8qTN3cCnQ?t=1091">this</a> link.
+
+## Create LXC
 
 
