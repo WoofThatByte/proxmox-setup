@@ -3,5 +3,5 @@
 ## Proxmox VE
 
   <p align="left">
-  The following steps provide help with the Proxmox VE
+  The following steps guide you through the post installation of Proxmox VE.
   </p>
