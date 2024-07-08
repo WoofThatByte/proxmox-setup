@@ -23,11 +23,15 @@
   
   ### Increase storage
   <p align="left">
-    1. Delete <code>local-lvm</code> under the <code>Datacenter -> Storage</code>
+    1. Delete <code>local-lvm</code> under the <code>Datacenter -> Storage</code> 
+    </br>
     2. Open shell in Proxmox node:
-        - <code>lvremove /dev/pve/data</code>. say Y
-        - <code>lvresize -l +100%FREE /dev/pve/root</code>
-        - <code>resize2fs /dev/mapper/pve-root</code>
+        </br>
+        * <code>lvremove /dev/pve/data</code>. say Y
+        </br>
+        * <code>lvresize -l +100%FREE /dev/pve/root</code>
+        </br>
+        * <code>resize2fs /dev/mapper/pve-root</code>
   </p>
 
 
