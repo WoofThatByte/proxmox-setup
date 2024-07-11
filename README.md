@@ -19,7 +19,7 @@
     Internet connection when installing the Proxmox Ve is necessary!
   </p>
   
-  #### Post installation update:
+  #### Post installation update  (to support 13th gen Intel CPU or newer):
   <p align="left">
     
     apt update
@@ -63,11 +63,23 @@
 
 ## Create Ubuntu LXC
 <p align="left">
-    Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
+    1. Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
 </p>
 
 <p align="left">
-    
+    2.  Install Drivers in the LXC
+  
+      apt install cifs-utils
+      apt install -y curl gnupg-utils
+      apt install net-tools
+      apt update && apt upgrade -y
+</p>
+
+<p align="left">
+    2.  Install dependencies
+  
+      apt-get update -y
+      apt-get install -y ocl-icd-libopencl1
 </p>
 
 ## Passthrough Intel iGPU
@@ -176,7 +188,7 @@
 ### Pass iGPU to LXC
 <p align="left"> 
   This works for Privileged containers: </br>
-  1. <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
+  1. Open a pve shell and edit the container config file: <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
   2. For Proxmox >= 7.0
 
     lxc.cgroup2.devices.allow: c 226:0 rwm
