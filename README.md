@@ -16,7 +16,7 @@
 ## Proxmox VE installation
   <p align="left">
     Can use <a href="https://www.youtube.com/watch?v=_u8qTN3cCnQ">this</a> link. </br>
-    Internet connection when installing the Proxmox Ve is not necessary but it is helpful!
+    Internet connection when installing the Proxmox Ve is necessary!
   </p>
 
   ### Post installation script
