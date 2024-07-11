@@ -31,7 +31,7 @@
     2. change namesever with router DNS
   </p>
   
-  ### Increase storage
+  ### Increase storage - post install
   <p align="left">
     1. Delete <code>local-lvm</code> under the <code>Datacenter -> Storage</code> 
     </br>
@@ -44,9 +44,21 @@
         * <code>resize2fs /dev/mapper/pve-root</code>
   </p>
   
-## Create VM
- Can use <a href="https://youtu.be/_u8qTN3cCnQ?t=1091">this</a> link.
+## Create Ubuntu VM
+<p align="left">
+     Can use <a href="https://youtu.be/_u8qTN3cCnQ?t=1091">this</a> link.
+</p>
 
-## Create LXC
 
+## Create Ubuntu LXC
+<p align="left">
+    Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
+</p>
+
+## Passthrough Intel iGPU
+<p align="left">
+    Enable <code>Intel Virtualization Technology</code> and <code>VT-d</code> in BIOS
+</p>
+
+### VM - Enabling PCI passthrough
 
