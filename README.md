@@ -176,7 +176,7 @@
 ### Pass iGPU to LXC
 <p align="left"> 
   This works for Privileged containers: </br>
-  1. <code>nano /etc/pve/lxc/<container_id>.conf</code> </br>
+  1. <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
   2. For Proxmox >= 7.0
 
     lxc.cgroup2.devices.allow: c 226:0 rwm
