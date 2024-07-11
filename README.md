@@ -76,7 +76,7 @@
 </p>
 
 <p align="left">
-    2.  Install dependencies
+    2.  Install dependencies in the LXC
   
       apt-get update -y
       apt-get install -y ocl-icd-libopencl1
