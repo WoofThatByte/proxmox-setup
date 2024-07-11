@@ -170,7 +170,7 @@
     00:02.0 VGA compatible controller [0300]: Intel Corporation Raptor Lake-P [Iris Xe Graphics] [8086:a7a0] (rev 04) (prog-if 00 [VGA controller])
 </p>
 
-### Pass iGPU to VM - Only for GVT!!!
+### Add iGPU to VM - Only for GVT!!!
 <p align="left">
   Select VM, Shutdown/Stop and go to Hardware. Add new PCI Device. Select <strong>Raw Device</strong> Select iGPU ( 00:02.0 for this example ). Select MDev_Type. Either <strong>i915-GTVg_V5_4</strong> or <strong>i915-GTVg_V5_8</strong>. I dont really know the difference. Start VM!
 </p>
@@ -185,7 +185,7 @@
   Good to go with hardware acceleration now. 
 </p>
 
-### Pass iGPU to LXC
+### Add iGPU to LXC
 <p align="left"> 
   This works for Privileged containers: </br>
   1. Open a pve shell and edit the container config file: <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
@@ -198,6 +198,16 @@
     lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create=file
 </p>
 
+### Add mount point to LXC
+<p align="left">
+  1. <code>nano /etc/pve/lxc/[container_id].conf</code>
+  2. <code>mp0: /mnt/usb, mp=/mnt/usb</code>
+    
+    where:
+    /mnt/usb is mounted drive in proxmox
+    mp=/mnt/usb is directory in LXC where drive is mounted
+</p>
+  
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
  3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">owner post</a>
