@@ -177,12 +177,17 @@
 <p align="left"> 
   This works for Privileged containers: </br>
   1. <code>nano /etc/pve/lxc/<container id>.conf</code> </br>
-  2.
+  2. For Proxmox >= 7.0
+
+    lxc.cgroup2.devices.allow: c 226:0 rwm
+    lxc.cgroup2.devices.allow: c 226:128 rwm
+    lxc.cgroup2.devices.allow: c 29:0 rwm
+    lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
+    lxc.mount.entry: /dev/dri/renderD128 dev/renderD128 none bind,optional,create=file
 </p>
 
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
- 2. <a href="https://cetteup.com/216/how-to-use-an-intel-vgpu-for-plexs-hardware-accelerated-streaming-in-a-proxmox-vm/">cetteup.com</a>
  3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">owner post</a>
  4. <a href="https://github.com/sherbibv">sherbibv</a>
 
