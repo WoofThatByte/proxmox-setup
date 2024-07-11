@@ -63,9 +63,21 @@
     Host will lose access to iGPU when passing to VM!
 </p>
 
-### VM - Enabling PCI passthrough
+### Enabling PCI passthrough
 <p align="left">
     Node shell: </br>
     1. run <code>nano /etc/default/grub</code> </br>
-    2. Edit as follows: <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"</code>. Add together parameter <code>i915.enable_gvt=1</code> for all 5th generation (Broadwell) to 10th generation (Comet Lake) Intel Core to enable GVT. At this moment I dont know how to enable SR-IOV on 13th cpu.
+    2. Edit as follows: <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"</code>. Add together parameter <code>i915.enable_gvt=1</code> for all 5th generation (Broadwell) to 10th generation (Comet Lake) Intel Core to enable GVT. At this moment I dont know how to enable SR-IOV on 13th cpu. </br>
+    3. update grub: <code>update-grub</code> </br>
+    4. run <code>nano /etc/modules</code> </br>
+    5. 
+
+    kvmgt #not necessary for 13th cpu
+    vfio
+    vfio_pci
+    vfio_virqfd
+    vfio_iommu_type1
+    vfio-mdev #not necessary for 13th cpu
+    i915 #not necessary for 13th cpu
+    
 </p>
