@@ -183,6 +183,7 @@
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
  2. <a href="https://cetteup.com/216/how-to-use-an-intel-vgpu-for-plexs-hardware-accelerated-streaming-in-a-proxmox-vm/">cetteup.com</a>
- 3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">User adresner</a> 
+ 3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">Forum user adresner</a>
+ 4. <a href="https://github.com/sherbibv">sherbibv</a>
 
 
