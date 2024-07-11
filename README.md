@@ -18,6 +18,28 @@
     Can use <a href="https://www.youtube.com/watch?v=_u8qTN3cCnQ">this</a> link. </br>
     Internet connection when installing the Proxmox Ve is necessary!
   </p>
+  
+  #### Post installation update:
+  <p align="left">
+    
+    apt update
+    apt full-upgrade
+    apt install pve-kernel-6.2
+    reboot
+  </p>
+  
+  #### Increase storage - post install
+  <p align="left">
+    1. Delete <code>local-lvm</code> under the <code>Datacenter -> Storage</code> 
+    </br>
+    2. Open shell in Proxmox node:
+        </br>
+        * <code>lvremove /dev/pve/data</code>. say Y
+        </br>
+        * <code>lvresize -l +100%FREE /dev/pve/root</code>
+        </br>
+        * <code>resize2fs /dev/mapper/pve-root</code>
+  </p>
 
   ### Post installation script
   <p align="left">
@@ -31,18 +53,7 @@
     2. change namesever with router DNS
   </p>
   
-  ### Increase storage - post install
-  <p align="left">
-    1. Delete <code>local-lvm</code> under the <code>Datacenter -> Storage</code> 
-    </br>
-    2. Open shell in Proxmox node:
-        </br>
-        * <code>lvremove /dev/pve/data</code>. say Y
-        </br>
-        * <code>lvresize -l +100%FREE /dev/pve/root</code>
-        </br>
-        * <code>resize2fs /dev/mapper/pve-root</code>
-  </p>
+
   
 ## Create Ubuntu VM
 <p align="left">
@@ -147,9 +158,9 @@
     00:02.0 VGA compatible controller [0300]: Intel Corporation Raptor Lake-P [Iris Xe Graphics] [8086:a7a0] (rev 04) (prog-if 00 [VGA controller])
 </p>
 
-### Pass iGPU to VM
+### Pass iGPU to VM - Only for GVT!!!
 <p align="left">
-  Select VM and go to Hardware. Add new PCI Device. Select <strong>Raw Device</strong> Select iGPU ( 00:02.0 for this example ). Select MDev_Type. Either <strong>i915-GTVg_V5_4</strong> or <strong>i915-GTVg_V5_8</strong>. I dont really know the difference.
+  Select VM, Shutdown/Stop and go to Hardware. Add new PCI Device. Select <strong>Raw Device</strong> Select iGPU ( 00:02.0 for this example ). Select MDev_Type. Either <strong>i915-GTVg_V5_4</strong> or <strong>i915-GTVg_V5_8</strong>. I dont really know the difference. Start VM!
 </p>
 <p align="left"> 
   Open VM shell and run <code>lspci -nnv | grep VGA</code> to check GPU has passed. Or check the directory <code>cd /dev/dri</code>:
@@ -162,8 +173,16 @@
   Good to go with hardware acceleration now. 
 </p>
 
+### Pass iGPU to LXC
 <p align="left"> 
-  Good to go with hardware acceleration now. 
+  This works for Privileged containers: </br>
+  1. <code>nano /etc/pve/lxc/<container id>.conf</code> </br>
+  2.
 </p>
+
+## References
+ 1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
+ 2. <a href="https://cetteup.com/216/how-to-use-an-intel-vgpu-for-plexs-hardware-accelerated-streaming-in-a-proxmox-vm/">cetteup.com</a>
+ 3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">User adresner</a> 
 
 
