@@ -23,6 +23,13 @@
   <p align="left">
     Use the Proxmox VE Post Install script provided by <a href="https://tteck.github.io/Proxmox/">tteck</a>
   </p>
+
+  <p align="left">
+    If bash command not working: </br>
+    Shell:</br>
+    1. <code>nano /etc/resolv.conf</code></br>
+    2. change namesever with router DNS
+  </p>
   
   ### Increase storage
   <p align="left">
