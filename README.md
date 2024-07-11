@@ -203,11 +203,11 @@
   First you have to mount the drive/usb!!!
   
   1. <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
-  2. <code>mp0: /mnt/usb, mp=/mnt/usb</code>
+  2. <code>mp0: /mnt/usb, mp=/mnt/usb</code>. You need to create directory /mnt/usb for Proxmox and LXC!
     
     where:
-    /mnt/usb is mounted drive in proxmox
-    mp=/mnt/usb is directory in LXC where drive is to be mounted
+    /mnt/usb is directory for mounted drive in proxmox
+    mp=/mnt/usb is directory in LXC where new drive is to be mounted
 </p>
   
 ## References
