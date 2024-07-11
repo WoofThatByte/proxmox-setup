@@ -65,19 +65,25 @@
 
 ### Enabling PCI passthrough
 <p align="left">
-    Node shell: </br>
-    1. run <code>nano /etc/default/grub</code> </br>
-    2. Edit as follows: <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"</code>. Add together parameter <code>i915.enable_gvt=1</code> for all 5th generation (Broadwell) to 10th generation (Comet Lake) Intel Core to enable GVT. At this moment I dont know how to enable SR-IOV on 13th cpu. </br>
-    3. update grub: <code>update-grub</code> </br>
-    4. run <code>nano /etc/modules</code> </br>
-    5. 
-
-    kvmgt #not necessary for 13th cpu
-    vfio
-    vfio_pci
-    vfio_virqfd
-    vfio_iommu_type1
-    vfio-mdev #not necessary for 13th cpu
-    i915 #not necessary for 13th cpu
+  Node shell: </br>
+  1. run <code>nano /etc/default/grub</code> </br>
+  2. Edit as follows: <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"</code>. Add together parameter <code>i915.enable_gvt=1</code> to enable GVT for all 5th generation (Broadwell) to 10th generation (Comet Lake) Intel Core to enable GVT. Some newer CPUs like i5-1340P use SR-IOV instead of GVT. At this moment I dont know how to enable SR-IOV on 13th cpu. </br>
+  3. Save changes  </br>
+  4. update grub: <code>update-grub</code> </br>
+  5. run <code>nano /etc/modules</code> </br>
+  6. Add modules:
     
+      # Modules required for PCI passthrough
+      vfio
+      vfio_pci
+      vfio_virqfd
+      vfio_iommu_type1    
+      # Modules required for Intel GVT. 
+      kvmgt 
+      vfio-mdev
+      i915 
+    
+  7. Save changes
+  8. Update modules: <code>update-initramfs -u -k all</code>
+  9. Reboot
 </p>
