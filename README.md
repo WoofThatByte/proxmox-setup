@@ -200,7 +200,9 @@
 
 ### Add mount point to LXC
 <p align="left">
-  1. <code>nano /etc/pve/lxc/[container_id].conf</code>
+  First you have to mount the drive/usb!!!
+  
+  1. <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
   2. <code>mp0: /mnt/usb, mp=/mnt/usb</code>
     
     where:
