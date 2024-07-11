@@ -207,7 +207,7 @@
     
     where:
     /mnt/usb is mounted drive in proxmox
-    mp=/mnt/usb is directory in LXC where drive is mounted
+    mp=/mnt/usb is directory in LXC where drive is to be mounted
 </p>
   
 ## References
