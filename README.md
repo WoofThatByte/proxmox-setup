@@ -59,6 +59,13 @@
 <p align="left">
     Enable <code>Intel Virtualization Technology</code> and <code>VT-d</code> in BIOS
 </p>
+<p align="left">
+    Host will lose access to iGPU when passing to VM!
+</p>
 
 ### VM - Enabling PCI passthrough
-
+<p align="left">
+    Node shell: </br>
+    1. run <code>nano /etc/default/grub</code> </br>
+    2. Edit as follows: <code>GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt"</code>. Add together parameter <code>i915.enable_gvt=1</code> for all 5th generation (Broadwell) to 10th generation (Comet Lake) Intel Core to enable GVT. At this moment I dont know how to enable SR-IOV on 13th cpu.
+</p>
