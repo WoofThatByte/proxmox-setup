@@ -118,3 +118,26 @@
     [    1.305741] DMAR: dmar1: Using Queued invalidation
     [    1.306955] DMAR: Intel(R) Virtualization Technology for Directed I/O
 </p>
+
+#### Check module i915 is not blacklisted
+<p align="left">
+  1. Run in pve shell: nano /etc/modprobe.d/pve-blacklist.conf </br>
+  2. If you get this response than it is fine:
+
+    # This file contains a list of modules which are not supported by Proxmox VE 
+
+    # nvidiafb see bugreport https://bugzilla.proxmox.com/show_bug.cgi?id=701
+    blacklist nvidiafb
+  3. Run: <code>nano /etc/modprobe.d/iommu_unsafe_interrupts.conf</code> 
+  4. Add and save: <code>options vfio_iommu_type1 allow_unsafe_interrupts=1</code>
+  5. <code>kvm.conf</code> and <code>vfio.conf</code> in /etc/modprobe.d/ must be empty
+  6. Reboot!
+</p>
+
+#### Check iGPU
+<p align="left">
+  1. pve shell: <code>lspci -nnv | grep VGA</code> </br>
+  2. Default PCI is 00:02.0
+
+    00:02.0 VGA compatible controller [0300]: Intel Corporation Raptor Lake-P [Iris Xe Graphics] [8086:a7a0] (rev 04) (prog-if 00 [VGA controller])
+</p>
