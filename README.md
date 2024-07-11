@@ -55,12 +55,16 @@
     Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
 </p>
 
+<p align="left">
+    
+</p>
+
 ## Passthrough Intel iGPU
 <p align="left">
     Enable <code>Intel Virtualization Technology</code> and <code>VT-d</code> in BIOS
 </p>
 <p align="left">
-    Host will lose access to iGPU when passing to VM!
+    Host will lose access to iGPU when passing to VM! GPU is located in <strong>/dev/dri</strong>: <code>card0  renderD128</code>
 </p>
 
 ### Enabling PCI passthrough
@@ -136,8 +140,30 @@
 
 #### Check iGPU
 <p align="left">
-  1. pve shell: <code>lspci -nnv | grep VGA</code> </br>
-  2. Default PCI is 00:02.0
+  1. pve shell: <code>lspci -nnv | grep VGA</code>. Run just <code>lspci</code> to see all </br>
+  2. Can check GPU kernel driver and modules: <code>lspci -nnk | grep VGA -A 8</code> </br>
+  3. Default PCI is 00:02.0
 
     00:02.0 VGA compatible controller [0300]: Intel Corporation Raptor Lake-P [Iris Xe Graphics] [8086:a7a0] (rev 04) (prog-if 00 [VGA controller])
 </p>
+
+### Pass iGPU to VM
+<p align="left">
+  Select VM and go to Hardware. Add new PCI Device. Select <strong>Raw Device</strong> Select iGPU ( 00:02.0 for this example ). Select MDev_Type. Either <strong>i915-GTVg_V5_4</strong> or <strong>i915-GTVg_V5_8</strong>. I dont really know the difference.
+</p>
+<p align="left"> 
+  Open VM shell and run <code>lspci -nnv | grep VGA</code> to check GPU has passed. Or check the directory <code>cd /dev/dri</code>:
+    
+    by-path  card0  renderD128
+  
+</p>
+
+<p align="left"> 
+  Good to go with hardware acceleration now. 
+</p>
+
+<p align="left"> 
+  Good to go with hardware acceleration now. 
+</p>
+
+
