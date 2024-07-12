@@ -189,7 +189,7 @@
 <p align="left"> 
   This works for Privileged containers: </br>
   1. Open a pve shell and edit the container config file: <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
-  2. For Proxmox >= 7.0
+  2. Add lines: For Proxmox >= 7.0
 
     lxc.cgroup2.devices.allow: c 226:0 rwm
     lxc.cgroup2.devices.allow: c 226:128 rwm
@@ -201,9 +201,9 @@
 ### Add mount point to LXC
 <p align="left">
   First you have to mount the drive/usb!!!
-  
-  1. <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
-  2. <code>mp0: /mnt/usb, mp=/mnt/usb</code>. You need to create directory /mnt/usb for Proxmox and LXC!
+  </br>
+  1. Edit: <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
+  2. Add line: <code>mp0: /mnt/usb, mp=/mnt/usb</code>. You need to create directory /mnt/usb for Proxmox and LXC!
     
     where:
     /mnt/usb is directory for mounted drive in proxmox
