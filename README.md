@@ -148,7 +148,7 @@
 
 #### Check module i915 is not blacklisted
 <p align="left">
-  1. Run in pve shell: nano /etc/modprobe.d/pve-blacklist.conf </br>
+  1. Run in pve shell: <code>nano /etc/modprobe.d/pve-blacklist.conf</code> </br>
   2. If you get this response than it is fine:
 
     # This file contains a list of modules which are not supported by Proxmox VE 
@@ -156,7 +156,7 @@
     # nvidiafb see bugreport https://bugzilla.proxmox.com/show_bug.cgi?id=701
     blacklist nvidiafb
   3. Run: <code>nano /etc/modprobe.d/iommu_unsafe_interrupts.conf</code> 
-  4. Add and save: <code>options vfio_iommu_type1 allow_unsafe_interrupts=1</code>
+  4. Add line and save: <code>options vfio_iommu_type1 allow_unsafe_interrupts=1</code>
   5. <code>kvm.conf</code> and <code>vfio.conf</code> in /etc/modprobe.d/ must be empty
   6. Reboot!
 </p>
