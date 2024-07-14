@@ -60,6 +60,22 @@
      Can use <a href="https://youtu.be/_u8qTN3cCnQ?t=1091">this</a> link.
 </p>
 
+### Expanding root drive
+<p align="left">
+  VM shell:</br>
+</p>
+<p align="left">
+  Locate the root partition by running <code>lsblk</code>. Run <code>cfdisk</code> and expand your root partition with the available free space (if present after VM disk resize from Proxmox VE GUI + VM reboot) by using the <code>Resize</code> option. 
+</p>
+<p align="left">
+   Next, we will need to get the Logical Volume (LV) path we want to alter using <code>sudo lvdisplay</code>. Note the LV Path value, we will use this in the next command.
+</p>
+<p align="left">
+   Run <code>lvextend -l +100%FREE /dev/ubuntu-vg/ubuntu-lv</code> that will extend the volume.
+</p>
+<p align="left">
+   Lastly, run <code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code> to resize the volume to the desires size.
+</p>
 
 ## Create Ubuntu LXC
 <p align="left">
