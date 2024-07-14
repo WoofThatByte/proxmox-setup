@@ -210,8 +210,7 @@
     mp=/mnt/usb is directory in LXC where new drive is to be mounted
 </p>
 
-### Add mount point to VM
-  First you have to mount the drive/usb!!! </br>
+### Add drive to VM
   Open pve shell: </br>
 1. Get drive UUID: <code>ls -n /dev/disk/by-uuid/</code>
 2. Run: <code>/sbin/qm set [VM-ID] -virtioX /dev/disk/by-uuid/[UUID]</code>. Where <strong>X</strong> in <code>-virtioX</code> is a number from 0 to 15
