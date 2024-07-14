@@ -46,38 +46,35 @@ LXC/VM shell:</br>
         utility-services
 </p>
 
-#### media-management-services
-<p align="left">
-    sonarr</br>
-    radarr</br>
-    prowlarr</br>
-    wizarr</br>
-    deluge</br>
-    bazarr</br>
-    tautulli</br>
-    overseerr
-</p>
-
-#### media-services
-<p align="left">
-    plex
-</p>
-
-#### network-services
-<p align="left">
-    flaresolverr
-</p>
-
-#### utility-services
-<p align="left">
-    dockerproxy</br>
-    filebrowser</br>
-    pairdrop</br>
-    scrutiny</br>
-    speedtest-tracker</br>
-    tdarr</br>
-    tdarr-node</br>
-    nextcloud-app</br>
-    postgres-nextcloud</br>
-    redis-nextcloud
-</p>
+<table>
+  <tr>
+    <th>media-management-services</th>
+    <th>media-services</th>
+    <th>network-services</th>
+    <th>utility-services</th>
+  </tr>
+  <tr>
+    <td>
+        sonarr</br>
+        radarr</br>
+        prowlarr</br>
+        wizarr</br>
+        deluge</br>
+        bazarr</br>
+        tautulli</br>
+        overseerr
+    </td>
+    <td>plex</td>
+    <td>flaresolverr</td>
+    <td>
+        sonarr</br>
+        radarr</br>
+        prowlarr</br>
+        wizarr</br>
+        deluge</br>
+        bazarr</br>
+        tautulli</br>
+        overseerr
+    </td>
+  </tr>
+</table>
