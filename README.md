@@ -215,7 +215,30 @@
   Open pve shell: </br>
 1. Get drive UUID: <code>ls -n /dev/disk/by-uuid/</code>
 2. Run: <code>/sbin/qm set [VM-ID] -virtioX /dev/disk/by-uuid/[UUID]</code>. Where <strong>X</strong> in <code>-virtioX</code> is a number from 0 to 15
-  
+
+## Power optimization
+
+### Powertop
+<p align="left">
+  Installing and configurind Powertop to optimize resource power consumption on Proxmox VE host. </br>
+  1. To install powertop <code>run apt-get install -y powertop</code>
+  2. Create a new systemd service that will run powertop after every reboot <code>nano /etc/systemd/system/powertop.service</code>
+    
+    [Unit]
+    Description=Auto-tune power savings (oneshot)
+    
+    [Service]
+    Type=oneshot
+    ExecStart=/usr/sbin/powertop --auto-tune
+    RemainAfterExit=true
+    
+    [Install]
+    WantedBy=multi-user.target
+
+  3. <code>systemctl daemon-reload</code>
+  4. <code>systemctl enable powertop.service</code> - WARNING!!! Enabling powertop.service may crash the Proxmox GUI. Consider disabling this service!
+</p>
+
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
  3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">owner post</a>
