@@ -36,8 +36,12 @@ LXC/VM shell:</br>
 
 ### Create Docker networks
 <p align="left">
-    <code>docker network create -d bridge media-management-services</code></br>
-    <code>docker network create -d bridge media-services</code></br>
-    <code>docker network create -d bridge network-services</code></br>
-    <code>docker network create -d bridge utility-services</code>
+    <code>docker network create -d bridge [network_name] </code>
+</p>
+<p align="left">
+    Networks:</br>
+        media-management-services</br>
+        media-services</br>
+        network-services</br>
+        utility-services
 </p>
