@@ -33,3 +33,11 @@ LXC/VM shell:</br>
 3. Portainer Server has now been installed. You can check to see whether the Portainer Server container has started by running <code>docker ps</code>
 4. Log in to Web UI: <code>http://[IP]:9000</code>.
 </p>
+
+### Create Docker networks
+<p align="left">
+    <code>docker network create -d bridge media-management-services</code></br>
+    <code>docker network create -d bridge media-services</code></br>
+    <code>docker network create -d bridge network-services</code></br>
+    <code>docker network create -d bridge utility-services</code>
+</p>
