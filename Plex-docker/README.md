@@ -67,14 +67,16 @@ LXC/VM shell:</br>
     <td>plex</td>
     <td>flaresolverr</td>
     <td>
-        sonarr</br>
-        radarr</br>
-        prowlarr</br>
-        wizarr</br>
-        deluge</br>
-        bazarr</br>
-        tautulli</br>
-        overseerr
+        dockerproxy</br>
+        filebrowser</br>
+        pairdrop</br>
+        scrutiny</br>
+        speedtest-tracker</br>
+        tdarr</br>
+        tdarr-node</br>
+        nextcloud-app</br>
+        postgres-nextcloud</br>
+        redis-nextcloud</br>
     </td>
   </tr>
 </table>
