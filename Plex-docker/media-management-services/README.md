@@ -1,0 +1,7 @@
+TIMEZONE=Europe/Bucharest
+VOLUMES_PATH=/docker-volumes
+MEDIA_HDD_PATH=/mnt/pool
+BAZARR_API_KEY=b43fd6d0dd7ef2ac517a62e91eef3efb
+DOMAIN_URL=budibv.go.ro
+PLEX_TOKEN=yBAzeyV5GT_k4_k8_UHu
+TAUTULLI_API_KEY=a26f12aa1508476f90bbe9b1c3c3cf5f
