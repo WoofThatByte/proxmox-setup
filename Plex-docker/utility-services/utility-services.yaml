@@ -1,1 +1,241 @@
-text here
+version: '3.4'
+
+networks:
+  utility-services:
+    external: true
+
+services:
+  dockerproxy:
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1
+    container_name: dockerproxy
+    ports:
+      - 2375:2375
+    environment:
+      - CONTAINERS=1
+      - POST=0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+    networks:
+      - utility-services
+
+#internet speed test service
+  speedtest-tracker:
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.13.4
+    container_name: speedtest-tracker
+    ports:
+      - 8081:80
+      - 8443:443
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - DB_CONNECTION=sqlite
+      - DB_HOST=/config/database.sqlite
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/speedtest/config:/config
+    restart: unless-stopped
+    networks:
+      - utility-services
+      
+#  SSD/HDD health check service
+  scrutiny:
+    image: ghcr.io/analogj/scrutiny:v0.7.2-omnibus
+    container_name: scrutiny
+    ports:
+      - 8082:8080
+      - 8086:8086
+    environment:
+      - TZ=${TIMEZONE}
+      - COLLECTOR_CRON_SCHEDULE="0 * * * *"
+    volumes:
+      - /run/udev:/run/udev:ro
+      - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
+      - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/opt/scrutiny/influxdb
+    cap_add:
+      - SYS_RAWIO
+    privileged: true
+    restart: unless-stopped
+    networks:
+      - utility-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8080/api/health | grep -q 'true'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 20s
+
+# file browser for the server
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    ports:
+      - 8300:80
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
+      - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
+      - /:/srv
+    restart: unless-stopped
+    networks:
+      - utility-services
+
+# file sharing service
+  pairdrop:
+    image: linuxserver/pairdrop:1.9.4
+    container_name: pairdrop 
+    ports:
+      - 3003:3000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=S<TIMEZONE)
+      - RATE_LIMIT=false
+      - WS_FALLBACK=false
+      - DEBUG_MODE=false 
+    restart: unless-stopped 
+    networks:
+      - utility-services
+# movie converter from x264 to x265 service
+  tdarr:
+    image: ghcr.io/haveagitgat/tdarr:2.21.01
+    container_name: tdarr
+    ports:
+      - 8265:8265 # webUI port
+      - 8266:8266 # server port
+    environment:
+      - TZ=${TIMEZONE}
+      - PUID=1000
+      - PGID=1000
+      - serverIP=${SERVER_IP}
+      - serverPort=8266
+      - webUIPort=8265
+    restart: unless-stopped
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/tdarr/server:/app/server
+      - ${VOLUMES_PATH}/utility-services/tdarr/configs:/app/configs
+      - ${VOLUMES_PATH}/utility-services/tdarr/logs:/app/logs
+      - ${MEDIA_HDD_PATH}/data:/media
+      - ${MEDIA_HDD_PATH}/data/tdarr_cache:/temp
+    networks:
+      - utility-services
+  # node for movie converter service Tdarr. Important!
+  tdarr-node:
+    image: ghcr.io/haveagitgat/tdarr_node:latest
+    container_name: tdarr-node
+    network_mode: service:tdarr
+    environment:
+      - TZ=${TIMEZONE}
+      - UMASK_SET=002
+      - nodeName=MyExternalNode
+      - nodeID=MainNode
+      - serverIP=${SERVER_IP}
+      - serverPort=8266
+    restart: unless-stopped
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/tdarr_node/configs:/app/configs
+      - ${VOLUMES_PATH}/utility-services/tdarr_node/logs:/app/logs
+      - ${MEDIA_HDD_PATH}/data:/media
+      - ${MEDIA_HDD_PATH}/data/tdarr_cache:/temp
+    devices:
+      - /dev/dri:/dev/dri
+
+# file sharing service using Nextcloud
+# broker 
+  redis-nextcloud:
+    image: redis:7.2.3
+    container_name: redis-nextcloud
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/nextcloud/redis:/data
+    restart: unless-stopped
+    networks:
+      - utility-services
+  # database
+  postgres-nextcloud:
+    image: postgres:16.2
+    container_name: postgres-nextcloud
+    environment:
+      - TZ=${TIMEZONE}
+      - POSTGRES_DB_FILE=/run/secrets/postgres_db
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/nextcloud/pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - utility-services
+    secrets:
+      - postgres_db
+      - postgres_password
+      - postgres_user
+    # app
+  nextcloud:
+    image: nextcloud:29.0.1
+    container_name: nextcloud-app
+    ports:
+      - 8088:80
+    environment:
+      - POSTGRES_HOST=postgres-nextcloud
+      - POSTGRES_DB_FILE=/run/secrets/postgres_db
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - REDIS_HOST=redis-nextcloud
+      - REDIS_PORT=6379
+      #
+      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
+      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+      - PHP_MEMORY_LIMIT=2G
+      - PHP_UPLOAD_LIMIT=16G
+       #
+      - TRUSTED_PROXIES=192.168.1.135  #IP of nginx LXC in  proxmox
+      - OVERWRITECLIURL=https://cloud.budi.ro
+      - OVERWRITEPROTOCOL=https
+      - NEXTCLOUD_TRUSTED_DOMAINS=cloud.budi.ro
+      - OVERWRITEHOST=cloud.budi.ro
+      - NEXTCLOUD_DEFAULT_PHONE_REGION=RO
+      #
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=465
+      - SMTP_SECURE=STARTTLS
+      - SMTP_AUTHTYPE=Login
+      - SMTP_NAME=contact@budi.ro
+      - SMTP_PASSWORD=/run/secrets/smtp_password
+      - MAIL_FROM_ADDRESS=nextcloud
+      #- MAIL_DOMAIN=redacted.com
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/nextcloud/app/:/var/www/html
+      - ${VOLUMES_PATH}/utility-services/nextcloud/app/custom_apps:/var/www/html/custom_apps
+      - ${VOLUMES_PATH}/utility-services/nextcloud/app/config:/var/www/html/config
+      - ${CLOUD_HDD_PATH}/nextcloud/data/:/var/www/html/data
+
+    restart: unless-stopped
+    networks:
+      - utility-services
+    depends_on:
+      - postgres-nextcloud
+      - redis-nextcloud
+    secrets:
+      - nextcloud_admin_password
+      - nextcloud_admin_user
+      - postgres_db
+      - postgres_password
+      - postgres_user
+
+
+secrets:
+  nextcloud_admin_password:
+    file: /docker-volumes/secrets/nextcloud_admin_password.txt # put admin password to this file
+  nextcloud_admin_user:
+    file: /docker-volumes/secrets/nextcloud_admin_user.txt # put admin username to this file
+  postgres_db:
+    file: /docker-volumes/secrets/postgres_db.txt # put postgresql db name to this file
+  postgres_password:
+    file: /docker-volumes/secrets/postgres_password.txt # put postgresql password to this file
+  postgres_user:
+    file: /docker-volumes/secrets/postgres_user.txt # put postgresql username to this file
+  smtp_password:
+    file: /docker-volumes/secrets/smtp_password.txt
