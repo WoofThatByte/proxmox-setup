@@ -6,9 +6,6 @@ networks:
 
 services:
 
-
-
-  
   #  works   with  prowlarr
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
