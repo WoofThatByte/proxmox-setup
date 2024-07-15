@@ -254,6 +254,9 @@
   4. <code>systemctl enable powertop.service</code> - WARNING!!! Enabling powertop.service may crash the Proxmox GUI. Consider disabling this service!
 </p>
 
+## ROUTER setup
+1. Reserve IP for Proxmox VE
+
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
  3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">owner post</a>
