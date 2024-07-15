@@ -6,7 +6,7 @@
   I chosed not to transcode video files that has DoVi profile 7 because WebOS does not have support for it. Transcoding TruHD (with Dolby Atmos) to .mp4 container will lose DolbyAtmos feature and audio will not play. Transcoding EAC-3 (with Dolby Atmos) to .mp4 container will keep the Dolby Atmos feature and audio will play.
 </p>
 <p align="left">
-  Remux files are the highest quality. Highest bitrate and loseless audio track like TrueHD or DTS:X. And Dolby Vision profile 7. Dolby Atmos comes with TrueHD. Remux use .mkv container.
+  Remux files are the highest quality. Highest bitrate and loseless audio track like TrueHD or DTS:X. And Dolby Vision profile 7. Dolby Atmos comes with TrueHD. Remux use often .mkv container. So this means that Remux is 1:1 copy of a disk.
 </p>
 <p align="left">
   How flow works: </br>
