@@ -31,7 +31,7 @@ LXC/VM shell:</br>
     -p 9000:9000
 
 3. Portainer Server has now been installed. You can check to see whether the Portainer Server container has started by running <code>docker ps</code>
-4. Log in to Web UI: <code>http://[IP]:9000</code>.
+4. Log in to Web UI: <code>http://[VM_IP]:9000</code>.
 </p>
 
 ### Create Docker networks
