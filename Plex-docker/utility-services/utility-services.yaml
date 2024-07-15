@@ -191,7 +191,7 @@ services:
       - PHP_MEMORY_LIMIT=2G
       - PHP_UPLOAD_LIMIT=16G
        #
-      - TRUSTED_PROXIES=${nginx_Proxy}  #IP of nginx LXC in  proxmox
+      - TRUSTED_PROXIES=${Nginx_Proxy}  #IP of nginx LXC in  proxmox
       - OVERWRITECLIURL=https://${Cloudflare_DNS}
       - OVERWRITEPROTOCOL=https
       - NEXTCLOUD_TRUSTED_DOMAINS=${Cloudflare_DNS}
