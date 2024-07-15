@@ -80,3 +80,8 @@ LXC/VM shell:</br>
     </td>
   </tr>
 </table>
+
+### ROUTER setup
+
+1. Reserve IP for the VM/LXC.
+
