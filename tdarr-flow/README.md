@@ -3,7 +3,7 @@
   LG WebOS supports only Dolby Vision profile 5 and 7 in .mp4 container. For .mkv container you will get only HDR and Dolby Atmos. 
 </p>
 <p align="left">
-  I chosed not to transcode video files that has DoVi profile 7 because WebOS does not have support for it. Transcoding TruHD (with Dolby Atmos) to .mp4 container will lose DolbyAtmos feature and audio will not play. Transcoding EAC-3 (with Dolby Atmos) to .mp4 container will keep the Dolby Atmos feature.
+  I chosed not to transcode video files that has DoVi profile 7 because WebOS does not have support for it. Transcoding TruHD (with Dolby Atmos) to .mp4 container will lose DolbyAtmos feature and audio will not play. Transcoding EAC-3 (with Dolby Atmos) to .mp4 container will keep the Dolby Atmos feature and audio will play.
 </p>
 <p align="left">
   How flow works: </br>
