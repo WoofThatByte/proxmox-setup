@@ -25,7 +25,7 @@
 </p>
 
 <p align="left">
-  Copy the plugins <code>checkDoViProfile</code> and <code>checkDoVi</code> folders in the following location to get access to DoVi plugins:
+  Copy the plugins <code>checkDoViProfile</code> and <code>checkDoVi</code> in the following location to get access to DoVi plugins:
   
     docker-volumes/utility-services/tdarr/server/Tdarr/Plugins/FlowPlugins/CommunityFlowPlugins/video/
 
