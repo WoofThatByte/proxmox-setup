@@ -23,3 +23,9 @@
   14. Transcode video file to .MP4</br>
   15. Replace original video file
 </p>
+
+<p align="left">
+  Copy <code>checkDoViProfile</code> and <code>checkDoVi</code> folders in the following location:
+  
+    docker-volumes/utility-services/tdarr/server/Tdarr/Plugins/FlowPlugins/CommunityFlowPlugins/video/
+</p>
