@@ -1,0 +1,540 @@
+{
+  "name": "Convert Movies",
+  "description": "Convert Movies",
+  "tags": "",
+  "flowPlugins": [
+    {
+      "name": "Input File",
+      "sourceRepo": "Community",
+      "pluginName": "inputFile",
+      "version": "1.0.0",
+      "id": "gtZCtmY-l",
+      "position": {
+        "x": 608.5269192842047,
+        "y": -634.1557442134135
+      }
+    },
+    {
+      "name": "Check Video hevc",
+      "sourceRepo": "Community",
+      "pluginName": "checkVideoCodec",
+      "version": "1.0.0",
+      "id": "PpLF-5jxp",
+      "position": {
+        "x": 609.6224618523153,
+        "y": -27.77965741707736
+      }
+    },
+    {
+      "name": "Replace Original File",
+      "sourceRepo": "Community",
+      "pluginName": "replaceOriginalFile",
+      "version": "1.0.0",
+      "id": "QdLvoNjuG",
+      "position": {
+        "x": 611.1730171852832,
+        "y": 740.3878893780145
+      }
+    },
+    {
+      "name": "Reorder Streams",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "5ZvASOz-X",
+      "position": {
+        "x": 607.9666489155136,
+        "y": -485.2915956324991
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_00td_action_re_order_all_streams_v2",
+        "codecs": "",
+        "processOrder": "codecs,channels,languages,streamTypes"
+      }
+    },
+    {
+      "name": "Remove commentary tracks",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "f59hd_nMv",
+      "position": {
+        "x": 608.9794606883858,
+        "y": -430.5514509555128
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_sdd3_Remove_Commentary_Tracks"
+      }
+    },
+    {
+      "name": "Remove image",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "4EJPQmuLL",
+      "position": {
+        "x": 608.5411103159034,
+        "y": -551.9287843972011
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_MC93_MigzImageRemoval"
+      }
+    },
+    {
+      "name": "Remove subtitle",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "inYlH29wy",
+      "position": {
+        "x": 607.7454455568334,
+        "y": -363.8315366650285
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_MP01_MichPasCleanSubsAndAudioCodecs",
+        "tag_subtitle_codecs": "hdmv_pgs_subtitle,dvd_subtitle,mov_text"
+      }
+    },
+    {
+      "name": "Extract subs to SRT",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "_5B4wFTQN",
+      "position": {
+        "x": 606.4259376460603,
+        "y": -302.0256220701876
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_rr01_drpeppershaker_extract_subs_to_SRT",
+        "remove_subs": "yes"
+      }
+    },
+    {
+      "name": "Check file size",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "trEbrqyJH",
+      "position": {
+        "x": 880.6351902183143,
+        "y": 199.4778109699031
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_a9he_New_file_size_check",
+        "lowerBound": "40"
+      }
+    },
+    {
+      "name": "Transcode to hevc",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "3nA9ugnN9",
+      "position": {
+        "x": 881.3445923453046,
+        "y": 138.69129087019564
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_Mthr_VaapiHEVCTranscode",
+        "minBitrate": "4000"
+      }
+    },
+    {
+      "name": "Check File Extension MKV",
+      "sourceRepo": "Community",
+      "pluginName": "checkFileExtension",
+      "version": "1.0.0",
+      "id": "nI_cZKxiW",
+      "position": {
+        "x": 585.5670979452448,
+        "y": 249.40496568451215
+      },
+      "inputsDB": {
+        "extensions": "mkv"
+      }
+    },
+    {
+      "name": "Begin Command",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandStart",
+      "version": "1.0.0",
+      "id": "LATE5UXrn",
+      "position": {
+        "x": 333.07881636950253,
+        "y": 825.6666785940413
+      }
+    },
+    {
+      "name": "Execute",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandExecute",
+      "version": "1.0.0",
+      "id": "2r3urEZ0t",
+      "position": {
+        "x": 336.1635218879309,
+        "y": 1124.6396667100491
+      }
+    },
+    {
+      "name": "Set Container",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandSetContainer",
+      "version": "1.0.0",
+      "id": "hJzkZDSKW",
+      "position": {
+        "x": 333.34815561345397,
+        "y": 1034.7075911649129
+      },
+      "inputsDB": {
+        "container": "mp4",
+        "forceConform": "true"
+      }
+    },
+    {
+      "name": "Transcode to MP4",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandCustomArguments",
+      "version": "1.0.0",
+      "id": "ruJVvCrc-",
+      "position": {
+        "x": 334.7041087263595,
+        "y": 931.6845574770994
+      },
+      "inputsDB": {
+        "inputArguments": "",
+        "outputArguments": "-strict -2"
+      }
+    },
+    {
+      "name": "Convert truehd to eac3",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "gTgNJhPod",
+      "position": {
+        "x": 211.89845486576374,
+        "y": 738.3720031296687
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_00td_action_add_audio_stream_codec",
+        "audioCodec": "eac3",
+        "channels": "6"
+      }
+    },
+    {
+      "name": "Check Audio TrueHD",
+      "sourceRepo": "Community",
+      "pluginName": "checkAudioCodec",
+      "version": "1.0.0",
+      "id": "OgoLVapzZ",
+      "position": {
+        "x": 311.7329512773687,
+        "y": 645.3126049813002
+      },
+      "inputsDB": {
+        "codec": "truehd"
+      }
+    },
+    {
+      "name": "Check file size",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "1.0.0",
+      "id": "2vJ1QS88x",
+      "position": {
+        "x": 335.2959770601673,
+        "y": 1236.239466982029
+      },
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_a9he_New_file_size_check",
+        "lowerBound": "80"
+      }
+    },
+    {
+      "name": "Check DolbyVision profile Video",
+      "sourceRepo": "Community",
+      "pluginName": "checkDoViProfile",
+      "version": "1.0.0",
+      "id": "n5VZC6Vny",
+      "position": {
+        "x": 439.60472481356993,
+        "y": 511.4138529665362
+      }
+    },
+    {
+      "name": "Check  video  container so I  can convert Dolby Vision to MP4",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "jYmRjubQe",
+      "position": {
+        "x": 364.219878182485,
+        "y": 353.2215018543795
+      }
+    },
+    {
+      "name": "LG OLED C3 only supports DoVi profile 5 and 8",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "F-mtiiZ4F",
+      "position": {
+        "x": 226.5248026203381,
+        "y": 530.5059395803817
+      }
+    },
+    {
+      "name": "Check DolbyVision Video",
+      "sourceRepo": "Community",
+      "pluginName": "checkDoVi",
+      "version": "1.0.0",
+      "id": "lzZ9TPoj2",
+      "position": {
+        "x": 523.8914906976503,
+        "y": 359.1356531556409
+      }
+    },
+    {
+      "name": "Check File Size",
+      "sourceRepo": "Community",
+      "pluginName": "checkFileSize",
+      "version": "1.0.0",
+      "id": "IqEu5PnuK",
+      "position": {
+        "x": 779.0116741258745,
+        "y": 47.343211066496394
+      },
+      "inputsDB": {
+        "lessThan": "4"
+      }
+    },
+    {
+      "name": "No need to encode smaller size videos",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "fdK7V7dO_",
+      "position": {
+        "x": 942.5353664098479,
+        "y": 39.97707727908772
+      }
+    },
+    {
+      "name": "MKV containers will be processed further, MP4 containers are ignored.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "id": "SRdytX8NG",
+      "position": {
+        "x": 407.5353664098481,
+        "y": 246.9770772790876
+      }
+    }
+  ],
+  "flowEdges": [
+    {
+      "source": "5ZvASOz-X",
+      "sourceHandle": "1",
+      "target": "f59hd_nMv",
+      "targetHandle": null,
+      "id": "Y83YyCSSF"
+    },
+    {
+      "source": "gtZCtmY-l",
+      "sourceHandle": "1",
+      "target": "4EJPQmuLL",
+      "targetHandle": null,
+      "id": "vIPrSTHB0"
+    },
+    {
+      "source": "4EJPQmuLL",
+      "sourceHandle": "1",
+      "target": "5ZvASOz-X",
+      "targetHandle": null,
+      "id": "4K3NAAIAm"
+    },
+    {
+      "source": "f59hd_nMv",
+      "sourceHandle": "1",
+      "target": "inYlH29wy",
+      "targetHandle": null,
+      "id": "2ZWSsxdPd"
+    },
+    {
+      "source": "inYlH29wy",
+      "sourceHandle": "1",
+      "target": "_5B4wFTQN",
+      "targetHandle": null,
+      "id": "My5KOEQIE"
+    },
+    {
+      "source": "hJzkZDSKW",
+      "sourceHandle": "1",
+      "target": "2r3urEZ0t",
+      "targetHandle": null,
+      "id": "X5BpwIZCa"
+    },
+    {
+      "source": "ruJVvCrc-",
+      "sourceHandle": "1",
+      "target": "hJzkZDSKW",
+      "targetHandle": null,
+      "id": "G5LOJGnHK"
+    },
+    {
+      "source": "LATE5UXrn",
+      "sourceHandle": "1",
+      "target": "ruJVvCrc-",
+      "targetHandle": null,
+      "id": "MYLleym1W"
+    },
+    {
+      "source": "OgoLVapzZ",
+      "sourceHandle": "1",
+      "target": "gTgNJhPod",
+      "targetHandle": null,
+      "id": "gdaMDXkOr"
+    },
+    {
+      "source": "2vJ1QS88x",
+      "sourceHandle": "1",
+      "target": "QdLvoNjuG",
+      "targetHandle": null,
+      "id": "VXiCcAT_9"
+    },
+    {
+      "source": "2r3urEZ0t",
+      "sourceHandle": "1",
+      "target": "2vJ1QS88x",
+      "targetHandle": null,
+      "id": "I5_tEyt4B"
+    },
+    {
+      "source": "nI_cZKxiW",
+      "sourceHandle": "2",
+      "target": "QdLvoNjuG",
+      "targetHandle": null,
+      "id": "vNj1XRORI"
+    },
+    {
+      "source": "_5B4wFTQN",
+      "sourceHandle": "1",
+      "target": "PpLF-5jxp",
+      "targetHandle": null,
+      "id": "hiI5AZy-c"
+    },
+    {
+      "source": "OgoLVapzZ",
+      "sourceHandle": "2",
+      "target": "LATE5UXrn",
+      "targetHandle": null,
+      "id": "MH09eVmYt"
+    },
+    {
+      "source": "3nA9ugnN9",
+      "sourceHandle": "1",
+      "target": "trEbrqyJH",
+      "targetHandle": null,
+      "id": "Vp9F4TYrJ"
+    },
+    {
+      "source": "gTgNJhPod",
+      "sourceHandle": "1",
+      "target": "LATE5UXrn",
+      "targetHandle": null,
+      "id": "tvX1KdPCt"
+    },
+    {
+      "source": "n5VZC6Vny",
+      "sourceHandle": "1",
+      "target": "OgoLVapzZ",
+      "targetHandle": null,
+      "id": "mU0fi_WXr"
+    },
+    {
+      "source": "n5VZC6Vny",
+      "sourceHandle": "3",
+      "target": "OgoLVapzZ",
+      "targetHandle": null,
+      "id": "N9xujtVAG"
+    },
+    {
+      "source": "jYmRjubQe",
+      "sourceHandle": "1",
+      "target": "F-mtiiZ4F",
+      "targetHandle": null,
+      "id": "qNmwJUaaP"
+    },
+    {
+      "source": "PpLF-5jxp",
+      "sourceHandle": "1",
+      "target": "nI_cZKxiW",
+      "targetHandle": null,
+      "id": "4XeE3oTjh"
+    },
+    {
+      "source": "trEbrqyJH",
+      "sourceHandle": "1",
+      "target": "nI_cZKxiW",
+      "targetHandle": null,
+      "id": "9Bg3zic3W"
+    },
+    {
+      "source": "F-mtiiZ4F",
+      "sourceHandle": "1",
+      "target": "7KnTTCdEQ",
+      "targetHandle": null,
+      "id": "am6EV4b1Z"
+    },
+    {
+      "source": "nI_cZKxiW",
+      "sourceHandle": "1",
+      "target": "lzZ9TPoj2",
+      "targetHandle": null,
+      "id": "quUGvAAMD"
+    },
+    {
+      "source": "lzZ9TPoj2",
+      "sourceHandle": "1",
+      "target": "n5VZC6Vny",
+      "targetHandle": null,
+      "id": "OrW5C0n4J"
+    },
+    {
+      "source": "lzZ9TPoj2",
+      "sourceHandle": "2",
+      "target": "QdLvoNjuG",
+      "targetHandle": null,
+      "id": "fywP9UEMF"
+    },
+    {
+      "source": "n5VZC6Vny",
+      "sourceHandle": "2",
+      "target": "QdLvoNjuG",
+      "targetHandle": null,
+      "id": "BG2Hf8wSd"
+    },
+    {
+      "source": "PpLF-5jxp",
+      "sourceHandle": "2",
+      "target": "IqEu5PnuK",
+      "targetHandle": null,
+      "id": "_dnzhQZCN"
+    },
+    {
+      "source": "IqEu5PnuK",
+      "sourceHandle": "2",
+      "target": "3nA9ugnN9",
+      "targetHandle": null,
+      "id": "tRfzLvJKa"
+    },
+    {
+      "source": "IqEu5PnuK",
+      "sourceHandle": "1",
+      "target": "nI_cZKxiW",
+      "targetHandle": null,
+      "id": "hoTbk0ONA"
+    }
+  ]
+}
