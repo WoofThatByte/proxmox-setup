@@ -1,7 +1,9 @@
-TIMEZONE=Europe/Bucharest
-VOLUMES_PATH=/docker-volumes
-MEDIA_HDD_PATH=/mnt/pool
-BAZARR_API_KEY=b43fd6d0dd7ef2ac517a62e91eef3efb
-DOMAIN_URL=budibv.go.ro
-PLEX_TOKEN=yBAzeyV5GT_k4_k8_UHu
-TAUTULLI_API_KEY=a26f12aa1508476f90bbe9b1c3c3cf5f
+# Environment Variables
+
+TIMEZONE=Europe/Bucharest </br>
+VOLUMES_PATH=/docker-volumes </br>
+MEDIA_HDD_PATH=/mnt/pool </br>
+BAZARR_API_KEY=add_BAZARR_api_here </br>
+DOMAIN_URL=server_ip or server_DNS </br>
+PLEX_TOKEN=add_PLEX_api_here </br>
+TAUTULLI_API_KEY=add_TAUTULLI_api_here </br>
