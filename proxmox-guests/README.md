@@ -29,7 +29,7 @@
 
   <p align="left">
     Add <code>Stream</code>: </br>
-    <b>Plex</b> example: Take incoming port <code>32400</code> and forward it to port <code>32400</code> (Plex port). Forward host: [VM_IP]. Enable <code>TCP Forwarding</code> and <code>UDP Forwarding</code>
+    <b>Plex</b> example: Take incoming port <code>32400</code> set in Router and forward it to port <code>32400</code> (Plex port). Forward host: [VM_IP]. Enable <code>TCP Forwarding</code> and <code>UDP Forwarding</code>
   </p>
 
 ## Wireguard - LXC
