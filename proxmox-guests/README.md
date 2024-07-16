@@ -12,7 +12,7 @@
     Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
   <p>
-    Log in to web ui
+    Log in to Web UI
   </p>
   <p align="left">
     Add <code>Proxy Host</code>: </br>
