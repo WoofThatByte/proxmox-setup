@@ -27,7 +27,7 @@
 
 ## Creating a SMB service to pass it to VM/LXC
 <p align="left">
-  Can follow this <a href="https://youtu.be/oOvb5w5q-Uk?t=75">video</a>
+  Can also follow this <a href="https://youtu.be/oOvb5w5q-Uk?t=75">video</a>
 </p>
 
 ### Create user
