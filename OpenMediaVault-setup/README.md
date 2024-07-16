@@ -47,7 +47,11 @@
   Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). Select permissions and add the created user with read/write access. Save!</br>
 </p>
 
+
 ### Create SMB Shares
 <p align="left">
   Services -> SMB/CIFS -> Shares. Create a new one with the default settings. Select created shared folder. Save!
+</p>
+<p align="left">
+  Now the shared folder must appear ass <code>Referenced</code>!
 </p>
