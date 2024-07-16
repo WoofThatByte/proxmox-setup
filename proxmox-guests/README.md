@@ -9,17 +9,17 @@
 
 ## NginxProxyManager - LXC
   <p align="left">
-    Installed using <a href="https://tteck.github.io/Proxmox/">tteck</a> script.
+    Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
 
 ## Wireguard - LXC
   <p align="left">
-    Installed using <a href="https://tteck.github.io/Proxmox/">tteck</a> script.
+    Installed using <a href="https://tteck.github.io/Proxmox/#wireguard-lxc">tteck</a> script.
   </p>
 
 ## HomeAssistant - VM
   <p align="left">
-    Installed using <a href="https://tteck.github.io/Proxmox/">tteck</a> script.
+    Installed using <a href="https://tteck.github.io/Proxmox/#home-assistant-os-vm">tteck</a> script.
   </p>
 
 ## OpenMediaVault - VM
@@ -29,5 +29,5 @@
 
 ## UbuntuMediaServer -LXC
   <p align="left">
-  Installed using <a href="https://tteck.github.io/Proxmox/">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">this</a> link.
+  Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">this</a> link.
   </p>
