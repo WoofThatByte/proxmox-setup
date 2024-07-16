@@ -35,6 +35,10 @@
 
     pivpnHOST:provider.go.net
   </p>
+  <p align="left">
+    1. Add client: <code>pivpn add</code>
+    2. Check client QR code:  <code>pivpn -qr</code>
+  </p>
 
 ## HomeAssistant - VM
   <p align="left">
