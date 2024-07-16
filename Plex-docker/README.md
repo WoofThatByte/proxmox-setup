@@ -6,10 +6,10 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
 
 ### Before starting
 <p>
-   Shared Folder in OpenMediaVault must be created first.  
+   Shared Folder in OpenMediaVault must be created first. And passed to VM/LXC. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/OpenMediaVault-setup">link</a>.
 </p>
 <p>
-    HDD mount point must have the following directory: </br>
+   HDD mount point must have the following directory: </br>
   <code>data</code> as parent directory with the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>  
 </p>
 
