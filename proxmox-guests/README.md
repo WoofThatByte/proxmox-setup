@@ -12,7 +12,7 @@
     Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
   <p align="left">
-    Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code>. Enable <code>Block Common Exploits</code>. Next modify SSL tab: enable <code>Force SSL</code> and <code>HTTP/2 support</code>.
+    Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code>. Enable <code>Block Common Exploits</code> and <code>Websockets support</code>. Next modify SSL tab: enable <code>Force SSL</code> and <code>HTTP/2 support</code>.
   </p>
   <p align="left">
     For Nextcloud app go to Advanced tab and add the following:
