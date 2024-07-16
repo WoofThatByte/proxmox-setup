@@ -259,7 +259,6 @@
 
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
- 3. <a href="https://forum.proxmox.com/threads/13th-gen-intel-proxmox-truenas-plex-hardware-transcoding-guide.125404/">owner post</a>
- 4. <a href="https://github.com/sherbibv">sherbibv</a>
+ 2. <a href="https://github.com/sherbibv">sherbibv</a>
 
 
