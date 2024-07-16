@@ -24,12 +24,12 @@
 
 ## OpenMediaVault - VM
   <p align="left">
-    Installed using ISO image.
+    Installed using ISO image. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/OpenMediaVault-setup">link</a> for more details.
   </p>
 
 ## UbuntuMediaServer -LXC
   <p align="left">
-  Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">this</a> link.
+  Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">link</a> for more details.
   </p>
 
 # ROUTER setup
