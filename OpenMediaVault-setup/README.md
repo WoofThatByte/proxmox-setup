@@ -36,7 +36,7 @@
 
 ### Enable SMB
 <p align="left">
-  text
+  Services -> SMB/CIFS -> Settings. <code>Enable</code> the service. Enable <code>Browseable</code>, <code>Inherit ACLs</code>, <code>Inherit permissions</code> under the <b>Home directories</b>. Under the <b>Advanced settings</b> select minimum protocol version to <code>SMB3</code>. Enable <code>Use sendfile</code> and <code>Asynchronous I/O</code>. Save!
 </p>
 
 ### Create shared folder
