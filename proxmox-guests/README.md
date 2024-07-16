@@ -36,7 +36,7 @@
     pivpnHOST:provider.go.net
   </p>
   <p align="left">
-    1. Add client: <code>pivpn add</code>
+    1. Add client: <code>pivpn add</code> </br>
     2. Check client QR code:  <code>pivpn -qr</code>
   </p>
 
