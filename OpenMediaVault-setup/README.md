@@ -69,7 +69,7 @@ VM/LXC shell: </br>
     # SMB mergerfs media share
     //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
 
-  Where <b>OMV_IP</b> is the IP of OpenMediaVault where SMB server is running. <b>plexpool</b> is the shared folder. <b>/mnt/pool/data</b> is a directory created on VM/LXC where SMB folder will be pointed. And <b>credentials=/etc/smbcreds</b> is the file for the user credentials.
+  Where <b><i>OMV_IP</i></b> is the IP of OpenMediaVault where SMB server is running. <b><i>plexpool</i></b> is the shared folder. <b><i>/mnt/pool/data</i></b> is a directory created on VM/LXC where SMB folder will be pointed. And <b><i>credentials=/etc/smbcreds</i></b> is the file for the user credentials.
   
   4. Save and reboot!
 </p>
