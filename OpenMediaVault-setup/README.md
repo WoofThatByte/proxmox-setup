@@ -1,11 +1,14 @@
 # OpenMediaVault setup
 <p align="left">
-  How to create a SMB service to pass it to VM/LXC. First of all the HDDs must be passed to OpenMediaVault.
+  How to create a SMB service to pass it to VM/LXC. First of all the <code>HDDs must be passed</code> to OpenMediaVault.
 </p>
 <p align="left">
    Install additional plugins: </br>
   1. OMV shell: <code>wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash</code> </br>
   2. Log in to UI. Go to System and enable omv-extras.
+</p>
+<p align="left">
+  Go to Storage -> File Systems and mount the drives.
 </p>
 <p align="left">
   Optional! Install <code>mergerFS</code> in System->Plugins and create a pool of multiple HDDs. </br>
