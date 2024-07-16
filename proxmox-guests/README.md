@@ -29,5 +29,5 @@
 
 ## UbuntuMediaServer -LXC
   <p align="left">
-   Please refer to <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">this</a> link.
+  Installed using <a href="https://tteck.github.io/Proxmox/">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">this</a> link.
   </p>
