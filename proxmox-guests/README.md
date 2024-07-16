@@ -11,6 +11,9 @@
   <p align="left">
     Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
+  <p>
+    Log in to web ui
+  </p>
   <p align="left">
     Add <code>Proxy Host</code>: </br>
     <b>Nextcloud</b> example: Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code> where nextcloud is running. Enable <code>Block Common Exploits</code> and <code>Websockets support</code>. Next modify SSL tab: enable <code>Force SSL</code> and <code>HTTP/2 support</code>.
