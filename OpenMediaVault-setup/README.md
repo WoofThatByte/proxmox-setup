@@ -32,7 +32,7 @@
 
 ### Create user
 <p align="left">
- Users -> Users. Add new user. Give it a name. Password and email empty. Add group settings:
+ Users -> Users. Add new user. Give it a name. Password. Add group settings:
 
     _ssh, crontab, daemon, openmediavault-admin, openmediavault-config, openmediavault-engined, openmediavault-notify, openmediavault-webgui, root, sudo, users
 </p>
@@ -44,14 +44,30 @@
 
 ### Create shared folder
 <p align="left">
-  Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). Select permissions and add the created user with read/write access. Save!</br>
+  Go to Storage -> Shared Folders. Create a new one named <code>plexpool</code>. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). Select permissions and add the created user with read/write access. Save!</br>
 </p>
-
 
 ### Create SMB Shares
 <p align="left">
   Services -> SMB/CIFS -> Shares. Create a new one with the default settings. Select created shared folder. Save!
 </p>
 <p align="left">
-  Now the shared folder must appear as <code>Referenced</code>!
+  Now the shared folder <code>plexpool</code> must appear as <code>Referenced</code>!
+</p>
+
+### Pass shared folder to VM/LXC
+VM/LXC shell: </br>
+<p align="left">
+  1. Run <code>nano /etc/smbcreds</code> to create a new file and add the user credentials created for the SMB Shared Folder (do not forget to Save!):
+
+    username=SMB_USER_GOES_HERE
+    password=SMB_PASS_GOES_HERE
+
+  2. Set the permissions of the file: <code>chmod 600 /etc/smbcreds</code>
+  3. Add SMB server to /etc/fstab:
+
+    # SMB mergerfs media share
+    //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
+
+  Where <b>OMV_IP</b> is the IP of OpenMediaVault where SMB server is running. <b>plexpool</b> is the shared folder. <b>/mnt/pool/data</b> is a directory created on VM/LXC where SMB folder will be pointed. And <b>credentials=/etc/smbcreds</b> is the file for the user credentials.
 </p>
