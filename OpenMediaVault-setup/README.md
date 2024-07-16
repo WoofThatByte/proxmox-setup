@@ -27,7 +27,6 @@
 
 ## Creating a SMB service to pass it to VM/LXC
 <p align="left">
-  Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (relative path for me is <code>data</code>). </br>
-  <code>data</code> is a parent directory that has the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>. </br>
+  Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). </br>
 </p>
 
