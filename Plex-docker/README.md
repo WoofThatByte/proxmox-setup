@@ -10,7 +10,7 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
 </p>
 <p>
    HDD mount point must have the following directory: </br>
-  <code>data</code> as parent directory with the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>  
+  <code>data</code> as parent directory with the following subfolders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>  
 </p>
 
 ## Create Ubuntu LXC/VM
