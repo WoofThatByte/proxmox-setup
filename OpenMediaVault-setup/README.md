@@ -24,10 +24,8 @@
   How to configure mergerFS: <a href="https://youtu.be/Y3yF1Rsu7ow?t=1118">video</a>
 </p>
 
+## Creating a SMB service to pass it to VM/LXC
 <p align="left">
   Go to Storage -> File Systems and mount the drives.
 </p>
-
-## Creating a SMB service to pass it to VM/LXC
-
 
