@@ -57,4 +57,11 @@
 
 # ROUTER setup
 <p align="left">
+  Add IP reservation to DHCP Server for OpenMediaVault
+</p>
+<p align="left">
+  Forward port: </br>
+  1. Nginx: Service name: Nginx-proxy-manager, Device IP Address: nginx_ip, external port: 80, internal port: 80. Service name: Nginx-proxy-manager2, Device IP Address: nginx_ip, external port: 443, internal port: 443 </br> </br>
+  2. Wireguard: Service name: wireguard, Device IP Address: wireguard_ip, external port: 51820, internal port: 51820 </br>
+  3. Plex: Service name: plex, Device IP Address: NginxProxyManager_ip, external port: 32400, internal port: 32400 </br>
 </p>
