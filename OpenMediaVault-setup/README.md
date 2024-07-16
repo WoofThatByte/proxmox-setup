@@ -53,5 +53,5 @@
   Services -> SMB/CIFS -> Shares. Create a new one with the default settings. Select created shared folder. Save!
 </p>
 <p align="left">
-  Now the shared folder must appear ass <code>Referenced</code>!
+  Now the shared folder must appear as <code>Referenced</code>!
 </p>
