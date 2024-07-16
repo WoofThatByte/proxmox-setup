@@ -4,6 +4,15 @@ For me Plex is running in Docker in Ubuntu LXC. It is not recommended to have do
 I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same docker. 
 </p>
 
+### Before starting
+<p>
+   Shared Folder in OpenMediaVault must be created first.  
+</p>
+<p>
+    HDD mount point must have the following directory: </br>
+  <code>data</code> as parent directory with the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>  
+</p>
+
 ## Create Ubuntu LXC/VM
 <p align="left">
     Refer to this <a href="https://github.com/WoofThatByte/proxmox-setup">link</a>
@@ -79,6 +88,7 @@ LXC/VM shell:</br>
     </td>
   </tr>
 </table>
+
 
 ### ROUTER setup
 
