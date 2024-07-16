@@ -11,6 +11,20 @@
   <p align="left">
     Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
+  <p align="left">
+    Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code>. Enable <code>Block Common Exploits</code>. Next modify SSL tab: enable Force SSL and HTTP/2 support.
+  </p>
+  <p align="left">
+    For Nextcloud app go to Advanced tab and add the following:
+
+    location /.well-known/carddav {
+    return 301 $scheme://$host/remote.php/dav;
+    }
+    
+    location /.well-known/caldav {
+        return 301 $scheme://$host/remote.php/dav;
+    }
+  </p>
 
 ## Wireguard - LXC
   <p align="left">
