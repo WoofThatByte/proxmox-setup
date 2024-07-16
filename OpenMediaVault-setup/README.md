@@ -29,7 +29,9 @@
 
 ### Create user
 <p align="left">
-  text
+ Users -> Users. Add new user. Give it a name. Password and email empty. Add group settings:
+
+    _ssh, crontab, daemon, openmediavault-admin, openmediavault-config, openmediavault-engined, openmediavault-notify, openmediavault-webgui, root, sudo, users
 </p>
 
 ### Enable SMB
