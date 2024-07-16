@@ -1,6 +1,6 @@
 # OpenMediaVault setup
 <p align="left">
-  How to create a SMB service to pass it to VM/LXC. First of all the <code>HDDs must be passed</code> to OpenMediaVault.
+  How to create a SMB service to pass it to VM/LXC. First of all the <code>HDDs must be passed</code> to OpenMediaVault. I added my HDD hub as a PCI Device into Hardware of OMV VM.
 </p>
 <p align="left">
    Install additional plugins: </br>
