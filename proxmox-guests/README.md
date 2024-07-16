@@ -12,7 +12,8 @@
     Installed using <a href="https://tteck.github.io/Proxmox/#nginx-proxy-manager-lxc">tteck</a> script.
   </p>
   <p align="left">
-    Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code>. Enable <code>Block Common Exploits</code> and <code>Websockets support</code>. Next modify SSL tab: enable <code>Force SSL</code> and <code>HTTP/2 support</code>.
+    Add <code>Proxy Host</code>: </br>
+    <b>Nextcloud</b> example: Add cloudflare SSL certificate (see <a href="https://youtu.be/pwK1LnbTitI?t=168">link</a>). Forward  Cloudflare_DNS to <code>Host_IP:8088</code>. Enable <code>Block Common Exploits</code> and <code>Websockets support</code>. Next modify SSL tab: enable <code>Force SSL</code> and <code>HTTP/2 support</code>.
   </p>
   <p align="left">
     For Nextcloud app go to Advanced tab and add the following:
@@ -24,6 +25,11 @@
     location /.well-known/caldav {
         return 301 $scheme://$host/remote.php/dav;
     }
+  </p>
+
+  <p align="left">
+    Add <code>Stream</code>: </br>
+    <b>Plex</b> example: Take incoming port <code>32400</code> and forward it to port <code>32400</code> (Plex port). Forward host: [VM_IP]. Enable <code>TCP Forwarding</code> and <code>UDP Forwarding</code>
   </p>
 
 ## Wireguard - LXC
