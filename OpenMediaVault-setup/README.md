@@ -1,5 +1,8 @@
 # OpenMediaVault setup
 <p align="left">
+  Install and complete setup:  <a href="https://www.youtube.com/watch?v=z5CqnmuqyHk">video</a>
+</p>
+<p align="left">
   How to create a SMB service to pass it to VM/LXC. First of all the <code>HDDs must be passed</code> to OpenMediaVault. I added my HDD hub as a PCI Device into Hardware of OMV VM.
 </p>
 <p align="left">
@@ -13,4 +16,7 @@
 <p align="left">
   Optional! Install <code>mergerFS</code> in System->Plugins. Create a pool of multiple HDDs in <code>Storage -> mergerfs</code>. </br>
   How to configure mergerFS: <a href="https://youtu.be/Y3yF1Rsu7ow?t=1118">video</a>
+</p>
+<p align="left">
+  Go to Storage -> File Systems and mount the drives.
 </p>
