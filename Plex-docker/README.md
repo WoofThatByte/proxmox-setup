@@ -1,6 +1,6 @@
 # Plex server running with Proxmox and Docker
 <p aling="left">
-For me Plex is running in Docker in Ubuntu LXC. It is not recommended to have docker installed in a LXC because when Proxmox updates it can crash your LXC. But for me LXC is fine and nothing bad happened so far. Passing the iGPU to LXC was easy. Use this <a href="https://github.com/WoofThatByte/proxmox-setup">link</a> for iGPU passthrough. </br>
+For me Plex is running in Docker in Ubuntu LXC. It is not recommended to have docker installed in a LXC because when Proxmox updates it can crash your LXC. But for me LXC is fine and nothing bad happened so far. Passing the iGPU to LXC was easy. Use this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main#passthrough-intel-igpu">link</a> for iGPU passthrough. </br>
 I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same docker. 
 </p>
 
