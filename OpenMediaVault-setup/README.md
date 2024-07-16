@@ -21,9 +21,7 @@
 ## mergerFS
 <p align="left">
   Install <code>mergerFS</code> in System->Plugins. Create a <code>pool</code> of multiple HDDs in <code>Storage -> mergerfs</code>. </br>
-
-    all HDDs must have the same structure. <code>data</code> as parent directory with the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>
-  
+  All HDDs must have the same structure. <code>data</code> as parent directory with the following subflders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>
   How to configure mergerFS: <a href="https://youtu.be/Y3yF1Rsu7ow?t=1118">video</a>
 </p>
 
