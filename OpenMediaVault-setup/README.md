@@ -15,7 +15,7 @@
 
 ## Mount drive
 <p align="left">
-  Go to Storage -> File Systems and mount the drives.
+  Go to Storage -> File Systems and mount the drives. I added <code>EXT4</code> for Plex storage.
 </p>
 
 ## mergerFS
@@ -26,6 +26,9 @@
 </p>
 
 ## Creating a SMB service to pass it to VM/LXC
+<p align="left">
+  Can follow this <a href="https://youtu.be/oOvb5w5q-Uk?t=75">video</a>
+</p>
 
 ### Create user
 <p align="left">
