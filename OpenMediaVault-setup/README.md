@@ -41,7 +41,7 @@
 
 ### Create shared folder
 <p align="left">
-  Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). Select permissions and add the user with read/write access. Save!</br>
+  Go to Storage -> Shared Folders. Create a new one. Give it a name. Select a file system (<b>pool</b> folder created with mergerFS). Select relative path (parent <code>data</code>). Select permissions and add the created user with read/write access. Save!</br>
 </p>
 
 ### Create SMB Shares
