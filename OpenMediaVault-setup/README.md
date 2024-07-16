@@ -11,6 +11,6 @@
   Go to Storage -> File Systems and mount the drives.
 </p>
 <p align="left">
-  Optional! Install <code>mergerFS</code> in System->Plugins and create a pool of multiple HDDs. </br>
+  Optional! Install <code>mergerFS</code> in System->Plugins. Create a pool of multiple HDDs in <code>Storage -> mergerfs</code>. </br>
   How to configure mergerFS: <a href="https://youtu.be/Y3yF1Rsu7ow?t=1118">video</a>
 </p>
