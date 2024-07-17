@@ -93,7 +93,7 @@ LXC/VM shell:</br></br>
 This installer pass the HDDs information from host to guest where docker is running. </br> </br>
 Proxmox VE shell: 
 <p align="left">
-   1. Install Scrutiny. Linux variant: <a href="https://github.com/AnalogJ/scrutiny/blob/master/docs/INSTALL_HUB_SPOKE.md">link</a>
+   1. Install Scrutiny. Linux variant: <a href="https://github.com/AnalogJ/scrutiny/blob/master/docs/INSTALL_HUB_SPOKE.md">link</a> </br>
    2. Create a new timer: <code>nano /etc/systemd/system/scrutiny.timer</code> and add:
 
       [Unit]
