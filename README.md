@@ -276,12 +276,12 @@ Proxmox VE shell:
  
  3. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
 
-          [Unit]
-         Description=Scrutiny job
+        [Unit]
+        Description=Scrutiny job
          
-         [Service]
-         Type=oneshot
-         ExecStart=/opt/scrutiny/bin/scrutiny-collector-metrics-linux-amd64 run --api-endpoint "http://SCRUTINY_HOST:SCRUTINY_PORT"
+        [Service]
+        Type=oneshot
+        ExecStart=/opt/scrutiny/bin/scrutiny-collector-metrics-linux-amd64 run --api-endpoint "http://SCRUTINY_HOST:SCRUTINY_PORT"
    
    5. Replace <code>SCRUTINY_HOST</code> and <code>SCRUTINY_PORT</code> with the corect details for the existing Scrutiny instance. To enable service run the following commands in this order:
 
