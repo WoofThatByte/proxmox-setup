@@ -105,22 +105,22 @@ Proxmox VE shell:
       
       [Install]
       WantedBy=timers.target
+ 
+ 3. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
 
-   3. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
-
-      [Unit]
-      Description=Scrutiny job
-      
-      [Service]
-      Type=oneshot
-      ExecStart=/opt/scrutiny/bin/scrutiny-collector-metrics-linux-amd64 run --api-endpoint "http://SCRUTINY_HOST:SCRUTINY_PORT"
+          [Unit]
+         Description=Scrutiny job
+         
+         [Service]
+         Type=oneshot </br>
+         ExecStart=/opt/scrutiny/bin/scrutiny-collector-metrics-linux-amd64 run --api-endpoint "http://SCRUTINY_HOST:SCRUTINY_PORT"
    
    5. Replace <code>SCRUTINY_HOST</code> and <code>SCRUTINY_PORT</code> with the corect details for the existing Scrutiny instance. To enable service run the following commands in this order:
 
-      systemctl daemon-reload
-      systemctl enable scrutiny.service
-      systemctl enable scrutiny.timer
-      systemctl start scrutiny.timer
+            systemctl daemon-reload
+            systemctl enable scrutiny.service
+            systemctl enable scrutiny.timer
+            systemctl start scrutiny.timer
 
    6. The same steps need to be done inside <code>OMV VM</code> to that media drives report their SMART metrics to Scrutiny.
 </p>
