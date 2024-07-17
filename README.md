@@ -298,6 +298,6 @@ Proxmox VE shell:
 
 ## References
  1. <a href="https://tteck.github.io/Proxmox/">tteck</a>
- 2. <a href="https://github.com/sherbibv">sherbibv</a>
+ 2. <a href="https://github.com/sherbibv/proxmox-setup">sherbibv</a>
 
 
