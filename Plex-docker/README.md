@@ -106,7 +106,7 @@ Proxmox VE shell:
       [Install]
       WantedBy=timers.target
 
-   4. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
+   3. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
 
       [Unit]
       Description=Scrutiny job
