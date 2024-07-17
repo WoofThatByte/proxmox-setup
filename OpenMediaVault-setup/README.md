@@ -58,18 +58,19 @@
 ### Pass shared folder to VM/LXC
 VM/LXC shell: </br>
 <p align="left">
-  1. Run <code>nano /etc/smbcreds</code> to create a new file and add the user credentials created for the SMB Shared Folder (do not forget to Save!):
+  1. Install cifs-utils: <code>apt install cifs-utils</code> </br>
+  2. Run <code>nano /etc/smbcreds</code> to create a new file and add the user credentials created for the SMB Shared Folder (do not forget to Save!):
 
     username=SMB_USER_GOES_HERE
     password=SMB_PASS_GOES_HERE
 
-  2. Set the permissions of the file: <code>chmod 600 /etc/smbcreds</code>
-  3. Add SMB server to /etc/fstab:
+  3. Set the permissions of the file: <code>chmod 600 /etc/smbcreds</code>
+  4. Add SMB server to /etc/fstab:
 
     # SMB mergerfs media share
     //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
 
   Where <b><i>OMV_IP</i></b> is the IP of OpenMediaVault where SMB server is running. <b><i>plexpool</i></b> is the shared folder. <b><i>/mnt/pool/data</i></b> is a directory created on VM/LXC where SMB folder will be pointed. And <b><i>credentials=/etc/smbcreds</i></b> is the file for the user credentials created above.
   
-  4. Save and reboot!
+  5. Save and reboot!
 </p>
