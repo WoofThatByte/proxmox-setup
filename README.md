@@ -255,7 +255,9 @@
   4. <code>systemctl enable powertop.service</code> - WARNING!!! Enabling powertop.service may crash the Proxmox GUI. Consider disabling this service!
 </p>
 
-### Scrutiny - Hard Drive monitoring tool
+## Hard Drive monitoring tool
+
+### Scrutiny 
 This installer pass the HDDs information from host to guest where docker is running. </br> </br>
 Proxmox VE shell: 
 <p align="left">
