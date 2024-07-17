@@ -20,7 +20,7 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
 
 ### Install Docker
 <p align="left">
-    LXC/VM shell:</br>
+    LXC/VM shell:</br></br>
     1. Install docker: <code> apt install docker.io</code>. Type <b>Y</b>. Enter to continue</br>
     2. Enable docker service: <code>systemctl enable docker</code>. This will start docker automatically on VM/LXC start</br>
     3. Check docker is running: <code>systemctl status docker</code></br>
@@ -30,7 +30,7 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
 
 ### Install Portainer
 <p align="left">
-LXC/VM shell:</br>
+LXC/VM shell:</br></br>
 1. First, create the volume that Portainer Server will use to store its database: <code>docker volume create portainer_data</code></br>
 2. Download and install the Portainer Server container: <code>docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest</code>
 
@@ -106,7 +106,7 @@ Proxmox VE shell:
       [Install]
       WantedBy=timers.target
 
-   4.Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
+   4. Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
 
       [Unit]
       Description=Scrutiny job
