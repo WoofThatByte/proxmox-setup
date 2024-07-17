@@ -89,6 +89,41 @@ LXC/VM shell:</br>
   </tr>
 </table>
 
+### Scrutiny - Hard Drive monitoring tool
+This installer pass the HDDs information from host to guest where docker is running. </br> </br>
+Proxmox VE shell: 
+<p align="left">
+   1. Install Scrutiny. Linux variant: <a href="https://github.com/AnalogJ/scrutiny/blob/master/docs/INSTALL_HUB_SPOKE.md">link</a>
+   2. Create a new timer: <code>nano /etc/systemd/system/scrutiny.timer</code> and add:
+
+      [Unit]
+      Description=Scrutiny scheduler
+      
+      [Timer]
+      OnUnitActiveSec=120m
+      OnBootSec=120m
+      
+      [Install]
+      WantedBy=timers.target
+
+   4.Create a new service <code>nano /etc/systemd/system/scrutiny.service</code> and add:
+
+      [Unit]
+      Description=Scrutiny job
+      
+      [Service]
+      Type=oneshot
+      ExecStart=/opt/scrutiny/bin/scrutiny-collector-metrics-linux-amd64 run --api-endpoint "http://SCRUTINY_HOST:SCRUTINY_PORT"
+   
+   5. Replace <code>SCRUTINY_HOST</code> and <code>SCRUTINY_PORT</code> with the corect details for the existing Scrutiny instance. To enable service run the following commands in this order:
+
+      systemctl daemon-reload
+      systemctl enable scrutiny.service
+      systemctl enable scrutiny.timer
+      systemctl start scrutiny.timer
+
+   6. The same steps need to be done inside <code>OMV VM</code> to that media drives report their SMART metrics to Scrutiny.
+</p>
 
 ## ROUTER setup
 
