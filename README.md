@@ -290,7 +290,7 @@ Proxmox VE shell:
             systemctl enable scrutiny.timer
             systemctl start scrutiny.timer
 
-   6. The same steps need to be done inside <code>OMV VM</code> to that media drives report their SMART metrics to Scrutiny.
+   <b>NOTE:</b> The same steps need to be done inside <code>OMV VM</code> to that media drives report their SMART metrics to Scrutiny.
 </p>
 
 ## ROUTER setup
