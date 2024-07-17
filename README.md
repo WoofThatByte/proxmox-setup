@@ -257,7 +257,7 @@
 
 ## Hard Drive monitoring tool
 
-### Scrutiny 
+### Scrutiny spoke
 This installer pass the HDDs information from host to guest. </br> </br>
 Proxmox VE shell: 
 <p align="left">
