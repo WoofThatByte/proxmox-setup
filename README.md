@@ -258,7 +258,7 @@
 ## Hard Drive monitoring tool
 
 ### Scrutiny 
-This installer pass the HDDs information from host to guest where docker is running. </br> </br>
+This installer pass the HDDs information from host to guest. </br> </br>
 Proxmox VE shell: 
 <p align="left">
    1. Install Scrutiny. Linux variant: <a href="https://github.com/AnalogJ/scrutiny/blob/master/docs/INSTALL_HUB_SPOKE.md">link</a> </br>
