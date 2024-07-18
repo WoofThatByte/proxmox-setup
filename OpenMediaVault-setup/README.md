@@ -6,7 +6,7 @@
   First of all the <code>HDDs must be passed</code> to OpenMediaVault. I added my HDD hub as a PCI Device into Hardware of OMV VM.
 </p>
 
-## Extra plugins
+## Install missing plugins
 <p align="left">
    Install additional plugins: </br>
   1. OMV shell: <code>wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash</code> </br>
