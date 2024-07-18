@@ -8,6 +8,12 @@
 
 ## Install missing plugins
 <p align="left">
+  From the Navigation menu select <code>System, Plugins</code> and in the search bar enter <code>omvextra</code>. Install <code>openmediavault-omvextrasorg</code>
+</p>
+<p align="left">
+  ------OR-----
+</p>
+<p align="left">
    Install additional plugins: </br>
   1. OMV shell: <code>wget -O - https://github.com/OpenMediaVault-Plugin-Developers/packages/raw/master/install | bash</code> </br>
   2. Log in to UI. Go to System and enable omv-extras.
