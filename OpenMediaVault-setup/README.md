@@ -31,6 +31,17 @@
   How to configure mergerFS: <a href="https://youtu.be/Y3yF1Rsu7ow?t=1118">video</a>
 </p>
 
+## ZFS
+<p align="left">
+  Proxmox kernel is more stable than omv kernel. Search for kernel in System->Plugins and install it. Then select Kernel and install proxmox kernel. Reboot MV!
+</p>
+<p align="left">
+  Search for ZFS in System->Plugins and install it. Create a new pool. </br>
+
+  <b>NOTE:</b> I use 2 HDDs. All my HDDs are external in a USB Hub. ZFS GUI will not let you create a new pool if you are using USB for your HDDs. I manually added a mirror pool. Open OMV console and create a pool with this command <code>zpool create tank mirror /dev/sdc /dev/sdd</code>. </br>
+  More info on this <a href="https://docs.oracle.com/cd/E19253-01/819-5461/gaynr/index.html">link</a>
+</p>
+
 ## Creating a SMB service to pass it to VM/LXC
 <p align="left">
   Can also follow this <a href="https://youtu.be/oOvb5w5q-Uk?t=75">video</a>
