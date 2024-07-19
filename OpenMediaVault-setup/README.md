@@ -72,7 +72,7 @@ VM/LXC shell: </br>
     password=SMB_PASS_GOES_HERE
 
   3. Set the permissions of the file: <code>chmod 600 /etc/smbcreds</code>
-  4. Add SMB server to /etc/fstab:
+  4. Add SMB server to <code>nano /etc/fstab</code>:
 
     # SMB mergerfs media share
     //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
