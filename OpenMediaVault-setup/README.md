@@ -47,12 +47,11 @@
 ### ZFS ACL (Access control list)
 <p align="left">
   Out of the box, ZFS doesn't support Linux style ACL's. Applying the following will get you a very close approximation. (And the last, while optional, could save you some disk space with little to nothing in a performance hit.) </br>
-  In the following, sub in your pool name, for XXXX
 
-    zfs set aclinherit=passthrough XXXX
-    zfs set acltype=posixacl XXXX
-    zfs set xattr=sa XXXX
-    zfs set compression=lz4 XXXX
+    zfs set aclinherit=passthrough [poolname]
+    zfs set acltype=posixacl [poolname]
+    zfs set xattr=sa [poolname]
+    zfs set compression=lz4 [poolname]
 </p>
 
 ## Creating a SMB service to pass it to VM/LXC
