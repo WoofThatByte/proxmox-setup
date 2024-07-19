@@ -39,7 +39,9 @@
   Search for ZFS in System->Plugins and install it. Create a new pool. </br>
 
   <b>NOTE:</b> I use 2 HDDs. All my HDDs are external in a USB Hub. ZFS GUI will not let you create a new pool if you are using USB for your HDDs. I manually added a mirror pool. Open OMV console and create a pool with this command <code>zpool create tank mirror /dev/sdc /dev/sdd</code>. </br>
-  More info on this <a href="https://docs.oracle.com/cd/E19253-01/819-5461/gaynr/index.html">link</a>
+  More info on this <a href="https://docs.oracle.com/cd/E19253-01/819-5461/gaynr/index.html">link</a> </br></br>
+
+  Now navigate to Storage -> zfs. Your pool now is being displayed in GUI.
 </p>
 
 ## Creating a SMB service to pass it to VM/LXC
