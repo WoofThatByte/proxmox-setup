@@ -47,7 +47,8 @@
 ### ZFS ACL (Access control list)
 <p align="left">
   Out of the box, ZFS doesn't support Linux style ACL's. Applying the following will get you a very close approximation. (And the last, while optional, could save you some disk space with little to nothing in a performance hit.) </br>
-
+  OMV shell:
+  
     zfs set aclinherit=passthrough [poolname]
     zfs set acltype=posixacl [poolname]
     zfs set xattr=sa [poolname]
