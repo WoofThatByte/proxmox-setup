@@ -90,6 +90,13 @@ LXC/VM shell:</br></br>
 </table>
 
 ## Nextcloud
+###
+<p align="left">
+   <code>Data</code> folder (<code>:/var/www/html/data</code>) must be accessed <code>www-data</code> only. Change permissions to data folder as follows:
+     
+      sudo chown -R  www-data:www-data [nextcloud_data_directory]
+</p>
+
 ### Cron job
 <p align="left">
    Nextcloud requires <code>cron</code> to run a job. </br> </br>
