@@ -111,7 +111,7 @@ VM/LXC shell: </br>
 
 #### Nextcloud
 <p>
-  <b>Nextcloud</b> data directory is running by user is <code>www-data</code>. To get user id run <code>id www-data</code> in VM/LXC shell. This will be <code>gid=33,uid=33</code>
+  <b>Nextcloud</b> data directory is running by user <code>www-data</code>. To get user id run <code>id www-data</code> in VM/LXC shell. This will be <code>gid=33,uid=33</code> </br></br>
   Passing smb to nextcloud will run into an "checkblock" message:
 
     Please change the permissions to 0770 so that the directory cannot be listed by other users
