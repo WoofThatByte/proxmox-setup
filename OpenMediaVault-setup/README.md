@@ -116,7 +116,7 @@ VM/LXC shell: </br>
 
     Please change the permissions to 0770 so that the directory cannot be listed by other users
 
-Because nextcloud is selfhosted uou can just disable this check by adding <code>'check_data_directory_permissions' => false,</code> to <code>config.php</code> in nextcloud directory.
+Because nextcloud is selfhosted you can just disable this check by adding <code>'check_data_directory_permissions' => false,</code> to <code>config.php</code> in nextcloud directory.
   
 </p>
 
