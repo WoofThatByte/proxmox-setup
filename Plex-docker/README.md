@@ -89,6 +89,31 @@ LXC/VM shell:</br></br>
   </tr>
 </table>
 
+## Nextcloud
+### Cron job
+<p align="left">
+   Nextcloud requires <code>cron</code> to run a job. </br> </br>
+   As root user: </br>
+   1. Enable cron: <code>systemctl enable cron</code> </br>
+   2. Run cron job: <code>sudo docker exec --user www-data nextcloud-app php /var/www/html/cron.php </code>. Where <code>nextcloud-app</code> is the nextcloud directory located in docker-volumes.
+   3. Add this cron job to crontab so it can automatically run every 10 minutes: <code>crontab -e</code>
+
+      */10 * * * * sudo docker exec --user www-data nextcloud-app php /var/www/html/cron.php
+</p>
+
+### Update missing indicies
+<p align="left">
+   
+      sudo docker exec --user www-data [container-name] php occ db:add-missing-indices
+
+***enter maintenance  mode****
+
+      sudo docker exec --user www-data [container-name] php /var/www/html/occ maintenance:mode --on
+      sudo docker exec --user www-data nextcloud-app php /var/www/html/occ maintenance:repair
+      sudo docker exec --user www-data nextcloud-app php /var/www/html/occ db:add-missing-columns
+      sudo docker exec --user www-data nextcloud-app php /var/www/html/occ maintenance:update:htaccess
+      sudo docker exec --user www-data nextcloud-app php /var/www/html/occ maintenance:mode --off
+</p>
 
 ## ROUTER setup
 
