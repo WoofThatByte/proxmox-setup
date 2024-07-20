@@ -102,13 +102,16 @@ VM/LXC shell: </br>
     //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
 
   Where <b><i>OMV_IP</i></b> is the IP of OpenMediaVault where SMB server is running. <b><i>plexpool</i></b> is the shared folder. <b><i>/mnt/pool/data</i></b> is a directory created on VM/LXC where SMB folder will be pointed. And <b><i>credentials=/etc/smbcreds</i></b> is the file for the user credentials created above. </br>
-  <code>gid=1000,uid=1000</code> is the user id. For <b>nextcloud</b> the user is www-data. To get user id run <code>id www-data</code> in VM/LXC shell. This will be <code>gid=33,uid=33</code>
+  <code>gid=1000,uid=1000</code> is the user id. </br></br>
+  
+  NOTE: For nextcloud the gid and uid are different. </br></br>
   
   5. Save and reboot!
 </p>
 
 #### Nextcloud
 <p>
+  <b>Nextcloud</b> data directory is running by user is <code>www-data</code>. To get user id run <code>id www-data</code> in VM/LXC shell. This will be <code>gid=33,uid=33</code>
   Passing smb to nextcloud will run into an "checkblock" message:
 
     Please change the permissions to 0770 so that the directory cannot be listed by other users
