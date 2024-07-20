@@ -106,3 +106,14 @@ VM/LXC shell: </br>
   
   5. Save and reboot!
 </p>
+
+#### Nextcloud
+<p>
+  Passing smb to nextcloud will run into an "checkblock" message:
+
+    Please change the permissions to 0770 so that the directory cannot be listed by other users
+
+Because nextcloud is selfhosted uou can just disable this check by adding <code>'check_data_directory_permissions' => false,</code> to <code>config.php</code> in nextcloud directory.
+  
+</p>
+
