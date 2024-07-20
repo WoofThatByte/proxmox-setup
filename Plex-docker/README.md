@@ -106,7 +106,7 @@ LXC/VM shell:</br></br>
    
       sudo docker exec --user www-data [container-name] php occ db:add-missing-indices
 
-***enter maintenance  mode****
+enter maintenance  mode
 
       sudo docker exec --user www-data [container-name] php /var/www/html/occ maintenance:mode --on
       sudo docker exec --user www-data nextcloud-app php /var/www/html/occ maintenance:repair
