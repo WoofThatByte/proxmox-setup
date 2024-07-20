@@ -90,11 +90,16 @@ LXC/VM shell:</br></br>
 </table>
 
 ## Nextcloud
-###
+### www-data user
 <p align="left">
    <code>Data</code> folder (<code>:/var/www/html/data</code>) must be accessed <code>www-data</code> only. Change permissions to data folder as follows:
      
       sudo chown -R  www-data:www-data [nextcloud_data_directory]
+</p>
+
+### SMB share
+<p align="left">
+   See <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/OpenMediaVault-setup#pass-shared-folder-to-vmlxc">link</a>
 </p>
 
 ### Cron job
