@@ -111,10 +111,10 @@ LXC/VM shell:</br></br>
    Nextcloud requires <code>cron</code> to run a job. </br> </br>
    As root user: </br>
    1. Enable cron: <code>systemctl enable cron</code> </br>
-   2. Run cron job: <code>sudo docker exec --user www-data nextcloud-app php /var/www/html/cron.php </code>. Where <code>nextcloud-app</code> is the nextcloud directory located in docker-volumes.
+   2. Run cron job: <code> docker exec --user www-data nextcloud-app php /var/www/html/cron.php </code>. Where <code>nextcloud-app</code> is the nextcloud directory located in docker-volumes.
    3. Add this cron job to crontab so it can automatically run every 10 minutes: <code>crontab -e</code>
 
-      */10 * * * * sudo docker exec --user www-data nextcloud-app php /var/www/html/cron.php
+      */10 * * * * docker exec --user www-data nextcloud-app php /var/www/html/cron.php
 </p>
 
 ### Update missing indicies
