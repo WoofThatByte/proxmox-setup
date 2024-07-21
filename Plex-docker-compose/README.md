@@ -51,7 +51,8 @@ LXC/VM shell:</br></br>
         media-management-services</br>
         media-services</br>
         network-services</br>
-        utility-services
+        utility-services </br>
+        cloud-services
 </p>
 
 <table>
@@ -60,6 +61,7 @@ LXC/VM shell:</br></br>
     <th>media-services</th>
     <th>network-services</th>
     <th>utility-services</th>
+    <th>cloud-services</th>
   </tr>
   <tr>
     <td>
@@ -81,10 +83,12 @@ LXC/VM shell:</br></br>
         scrutiny</br>
         speedtest-tracker</br>
         tdarr</br>
-        tdarr-node</br>
-        nextcloud-app</br>
-        postgres-nextcloud</br>
-        redis-nextcloud</br>
+        tdarr-node</br>        
+    </td>
+    <td>
+         nextcloud-app</br>
+         postgres-nextcloud</br>
+         redis-nextcloud</br>
     </td>
   </tr>
 </table>
