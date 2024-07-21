@@ -1,0 +1,175 @@
+version: "3.9"
+
+networks:
+  media-management-services:
+    external: true
+
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:4.0.8
+    container_name: sonarr
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/sonarr:/config
+      - ${MEDIA_HDD_PATH}/data:/media
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8989/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:5.7.0
+    container_name: radarr
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/radarr:/config
+      - ${MEDIA_HDD_PATH}/data:/media
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:7878/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:1.4.3
+    container_name: bazarr
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - BAZARR_API_KEY=${BAZARR_API_KEY}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/bazarr:/config
+      - ${MEDIA_HDD_PATH}/data/movies:/movies
+      - ${MEDIA_HDD_PATH}/data/series:/tv
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail -G "http://localhost:6767/api/system/health" --header "X-API-KEY:${BAZARR_API_KEY}" | grep -q '[ ]'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
+
+  prowlarr:
+    image: linuxserver/prowlarr:1.20.1
+    container_name: prowlarr
+    ports:
+      - 9696:9696
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/prowlarr:/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:9696/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
+
+
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:2.14.3
+    container_name: tautulli
+    ports:
+      - 8181:8181
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/tautulli/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - TAUTULLI_API_KEY=${TAUTULLI_API_KEY}
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail -G "http://localhost:8181/api/v2" --data-urlencode "apikey=${TAUTULLI_API_KEY}" --data-urlencode "cmd=status" | grep -q 'Ok'
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
+
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:1.33.2
+    container_name: overseerr
+    ports:
+      - 5055:5055
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=${TIMEZONE}
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/overseerr/config:/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
+
+  deluge:
+    image: lscr.io/linuxserver/deluge:2.1.1
+    container_name: deluge
+    ports:
+      - 8112:8112
+    environment:
+      - TZ=${TIMEZONE}
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/deluge:/config
+      - ${MEDIA_HDD_PATH}/data/downloads:/downloads
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
+
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr:4.1.1
+    ports:
+      - 5690:5690
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/wizarr3/database:/data/database
+    restart: unless-stopped
+    networks:
+      - media-management-services
