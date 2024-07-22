@@ -13,7 +13,7 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
   <code>data</code> as parent directory with the following subfolders: <code>downloads</code>, <code>movies</code>, <code>series</code>, <code>tdarr_cache</code>  
 </p>
 
-## Create Ubuntu LXC/VM
+## Create Ubuntu 24.04 LXC/VM
 <p align="left">
     Refer to this <a href="https://github.com/WoofThatByte/proxmox-setup">link</a>
 </p>
@@ -21,11 +21,35 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
 ### Install Docker
 <p align="left">
     LXC/VM shell:</br></br>
-    1. Install docker: <code> apt install docker.io</code>. Type <b>Y</b>. Enter to continue</br>
-    2. Enable docker service: <code>systemctl enable docker</code>. This will start docker automatically on VM/LXC start</br>
-    3. Check docker is running: <code>systemctl status docker</code></br>
-    4. If not running: <code>systemctl start docker</code>. Will start the docker</br>
-    5. Finally check docker: <code>docker run hello-world</code></br>
+    <a href="https://docs.vultr.com/how-to-install-docker-on-ubuntu-24-04">how to remove/install</a>    
+   1. Install docker: 
+    
+    apt install apt-transport-https ca-certificates curl software-properties-common -y
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    apt update
+    apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    
+   2. Enable docker service: <code>systemctl enable docker</code>. This will start docker automatically on VM/LXC start</br>
+   3. Check docker is running: <code>systemctl status docker</code></br>
+   4. If not running: <code>systemctl start docker</code>. Will start the docker</br>
+   5. Finally check docker: <code>docker run hello-world</code></br>
+</p>
+
+### Remove Docker (completely)
+<p>
+   1. <code>dpkg -l | grep -i docker</code> </br>   
+   2. <code>apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin</code> </br>   
+   3. <code>apt-get autoremove -y --purge docker-engine docker docker.io docker-ce docker-compose-plugin</code> </br>   
+   4. Delete all images, containers, and volumes run the following commands:
+
+      rm -rf /var/lib/docker /etc/docker
+      rm /etc/apparmor.d/docker
+      groupdel docker
+      rm -rf /var/run/docker.sock
+      rm -rf /var/lib/containerd
+      rm -r ~/.docker
+      rm -rf /usr/local/bin/docker-compose
 </p>
 
 ### Install Portainer
