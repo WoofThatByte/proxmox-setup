@@ -76,7 +76,7 @@ LXC/VM shell:</br></br>
         media-services</br>
         network-services</br>
         utility-services </br>
-        cloud-services
+        data-services
 </p>
 
 <table>
@@ -85,7 +85,7 @@ LXC/VM shell:</br></br>
     <th>media-services</th>
     <th>network-services</th>
     <th>utility-services</th>
-    <th>cloud-services</th>
+    <th>data-services</th>
   </tr>
   <tr>
     <td>
