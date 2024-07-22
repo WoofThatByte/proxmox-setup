@@ -60,6 +60,9 @@
 <p align="left">
      Can use <a href="https://youtu.be/_u8qTN3cCnQ?t=1091">this</a> link.
 </p>
+<p align="left">
+   <strong>NOTE:</strong> Upgrade to Ubuntu 24.04 using <a href="https://ubuntu.com/server/docs/how-to-upgrade-your-release">this</a> or <a href="https://www.cyberciti.biz/faq/how-to-upgrade-from-ubuntu-22-04-lts-to-ubuntu-24-04-lts/">that</a>
+</p>
 
 ### Expanding root drive
 <p align="left">
@@ -81,7 +84,7 @@
 ## Create Ubuntu 24.04 LXC
 <p align="left">
     1. Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script. </br></br>
-    <strong>NOTE:</strong> Upgrade to Ubuntu 24.04 using <a href="https://ubuntu.com/server/docs/how-to-upgrade-your-release">this</a>
+    <strong>NOTE:</strong> Upgrade to Ubuntu 24.04 using <a href="https://ubuntu.com/server/docs/how-to-upgrade-your-release">this</a> or <a href="https://www.cyberciti.biz/faq/how-to-upgrade-from-ubuntu-22-04-lts-to-ubuntu-24-04-lts/">that</a>
 </p>
 
 <p align="left">
