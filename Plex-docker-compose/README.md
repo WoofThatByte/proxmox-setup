@@ -36,7 +36,7 @@ I run <strong>Tdarr</strong> together with <strong>Plex</strong> on the same doc
    5. Finally check docker: <code>docker run hello-world</code></br>
 </p>
 
-### Remove Docker (completely)
+### Uninstall/Remove Docker (completely)
 <p>
    1. <code>dpkg -l | grep -i docker</code> </br>   
    2. <code>apt-get purge -y docker-engine docker docker.io docker-ce docker-ce-cli docker-compose-plugin</code> </br>   
