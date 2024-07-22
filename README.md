@@ -78,7 +78,7 @@
    Lastly, run <code>sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</code> to resize the volume to the desires size.
 </p>
 
-## Create Ubuntu 24.04 (noble) LXC
+## Create Ubuntu 24.04 LXC
 <p align="left">
     1. Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
 </p>
