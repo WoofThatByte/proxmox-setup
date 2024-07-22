@@ -80,7 +80,8 @@
 
 ## Create Ubuntu 24.04 LXC
 <p align="left">
-    1. Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script.
+    1. Use <a href="https://tteck.github.io/Proxmox/">tteck</a> Operating System script. </br></br>
+    <strong>NOTE:</strong> Upgrade to Ubuntu 24.04 using <a href="https://ubuntu.com/server/docs/how-to-upgrade-your-release">this</a>
 </p>
 
 <p align="left">
