@@ -78,6 +78,16 @@
   Now select created folder and edit permissions. Select created user in the steps below. Give Read/Write access.
 </p>
 
+<p align="left">
+  <b>NOTE:</b> Set <code>ACL (Access control list)</code> for the shared folder (owner, group, others) to have Read/Write/Execute. </br></br>  
+  Owner: created user</br>
+  Group: Users</br>
+  Others: Read/Write/Execute</br></br>
+
+  Enable <code>Replace</code> and <code>Recursive</code>. </br>
+  Save!
+</p>
+
 ### Create SMB Shares
 <p align="left">
   Services -> SMB/CIFS -> Shares. Create a new one with the default settings. Select created shared folder. Save!
@@ -100,7 +110,8 @@ VM/LXC shell: </br>
 
     # SMB mergerfs media share
     //OMV_IP/plexpool /mnt/pool/data cifs vers=3.0,gid=1000,uid=1000,iocharset=utf8,credentials=/etc/smbcreds 0 0
-
+  5. Go to mount point and type <code>touch test.txt</code> to check that you can write
+     
   Where <b><i>OMV_IP</i></b> is the IP of OpenMediaVault where SMB server is running. <b><i>plexpool</i></b> is the shared folder. <b><i>/mnt/pool/data</i></b> is a directory created on VM/LXC where SMB folder will be pointed. And <b><i>credentials=/etc/smbcreds</i></b> is the file for the user credentials created above. </br>
   <code>gid=1000,uid=1000</code> is the user id. </br></br>
   
