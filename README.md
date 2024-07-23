@@ -221,9 +221,8 @@
     
     #for machine-learning
     lxc.cgroup2.devices.allow: c 189:* rwm
-    lxc.mount.entry: /dev/bus/usb/ dev/bus/usb/ none bind,optional,create=file
-    lxc.mount.entry: /dev/bus/usb/001/001 dev/bus/usb/001/001 none bind,optional,create=file
-    lxc.mount.entry: /dev/bus/usb/002/001 dev/bus/usb/002/001 none bind,optional,create=file
+    lxc.mount.entry: /dev/bus/usb/ dev/bus/usb/ none bind,optional,create=dir
+
 </p>
 
 ### Add mount point to LXC
