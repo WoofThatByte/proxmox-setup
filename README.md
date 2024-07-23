@@ -212,11 +212,19 @@
   1. Open a pve shell and edit the container config file: <code>nano /etc/pve/lxc/[container_id].conf</code> </br>
   2. Add lines: For Proxmox >= 7.0
 
+    #for transcoding
     lxc.cgroup2.devices.allow: c 226:0 rwm
     lxc.cgroup2.devices.allow: c 226:128 rwm
     lxc.cgroup2.devices.allow: c 29:0 rwm
     lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
     lxc.mount.entry: /dev/fb0 dev/fb0 none bind,optional,create=file
+    
+    #for machine-learning
+    lxc.cgroup2.devices.allow: c 189:* rwm
+    lxc.mount.entry: /dev/bus/usb/ dev/bus/usb/ none bind,optional,create=file
+    lxc.mount.entry: /dev/bus/usb/001/001 dev/bus/usb/001/001 none bind,optional,create=file
+    lxc.mount.entry: /dev/bus/usb/001/002 dev/bus/usb/001/002 none bind,optional,create=file
+    lxc.mount.entry: /dev/bus/usb/002/001 dev/bus/usb/002/001 none bind,optional,create=file
 </p>
 
 ### Add mount point to LXC
