@@ -118,6 +118,8 @@ VM/LXC shell: </br>
   NOTE: For nextcloud the gid and uid are different. </br></br>
   
   5. Save and reboot!
+
+  NOTE: If you cannot write to mount point this means you have to check the shared folder permissions in OMV. </br></br>
 </p>
 
 ### Nextcloud
