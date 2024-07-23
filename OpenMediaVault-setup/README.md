@@ -114,11 +114,10 @@ VM/LXC shell: </br>
      
   Where <b><i>OMV_IP</i></b> is the IP of OpenMediaVault where SMB server is running. <b><i>plexpool</i></b> is the shared folder. <b><i>/mnt/pool/data</i></b> is a directory created on VM/LXC where SMB folder will be pointed. And <b><i>credentials=/etc/smbcreds</i></b> is the file for the user credentials created above. </br>
   <code>gid=1000,uid=1000</code> is the user id. </br></br>
+   6. Save and reboot!  </br></br>
   
   NOTE: For nextcloud the gid and uid are different. </br></br>
   
-  5. Save and reboot!
-
   NOTE: If you cannot write to mount point this means you have to check the shared folder permissions in OMV. </br></br>
 </p>
 
