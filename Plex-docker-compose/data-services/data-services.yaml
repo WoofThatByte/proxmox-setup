@@ -167,6 +167,7 @@ services:
       - postgres_immich_db
       - postgres_password
       - postgres_user
+  
   #immich machine learning
   immich-machine-learning:
     container_name: immich-machine-learning
