@@ -1,0 +1,203 @@
+version: '3.4'
+
+networks:
+  data-services:
+    external: true
+
+services:
+# file sharing service using Nextcloud
+# broker 
+  redis-nextcloud:
+    image: redis:7.2.5
+    container_name: redis-nextcloud
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/data-services/nextcloud/redis:/data
+    restart: unless-stopped
+    networks:
+      - data-services
+  
+  # database
+  postgres-nextcloud:
+    image: postgres:16.3
+    container_name: postgres-nextcloud
+    environment:
+      - TZ=${TIMEZONE}
+      - POSTGRES_DB_FILE=/run/secrets/postgres_nextcloud_db
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+    volumes:
+      - ${VOLUMES_PATH}/data-services/nextcloud/pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s  
+    restart: unless-stopped
+    networks:
+      - data-services
+    secrets:
+      - postgres_nextcloud_db
+      - postgres_password
+      - postgres_user
+    
+  # app
+  nextcloud:
+    image: nextcloud:29.0.3
+    container_name: nextcloud-app
+    ports:
+      - 8088:80
+    environment:
+      - POSTGRES_HOST=postgres-nextcloud
+      - POSTGRES_DB_FILE=/run/secrets/postgres_nextcloud_db
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - REDIS_HOST=redis-nextcloud
+      - REDIS_PORT=6379
+      #
+      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
+      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+      - PHP_MEMORY_LIMIT=2G
+      - PHP_UPLOAD_LIMIT=16G
+       #
+      - TRUSTED_PROXIES=${Nginx_Proxy}  #IP of nginx LXC in  proxmox
+      - OVERWRITECLIURL=https://${Cloudflare_DNS}
+      - OVERWRITEPROTOCOL=https
+      - NEXTCLOUD_TRUSTED_DOMAINS=${Cloudflare_DNS}
+      - OVERWRITEHOST=${Cloudflare_DNS}
+      - NEXTCLOUD_DEFAULT_PHONE_REGION=RO
+      #
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=465
+      - SMTP_SECURE=STARTTLS
+      - SMTP_AUTHTYPE=Login
+      - SMTP_NAME=${SMT_name}
+      - SMTP_PASSWORD=/run/secrets/smtp_password
+      - MAIL_FROM_ADDRESS=nextcloud
+      #- MAIL_DOMAIN=redacted.com
+    volumes:
+      - ${VOLUMES_PATH}/data-services/nextcloud/app/:/var/www/html
+      - ${VOLUMES_PATH}/data-services/nextcloud/app/custom_apps:/var/www/html/custom_apps
+      - ${VOLUMES_PATH}/data-services/nextcloud/app/config:/var/www/html/config
+      - ${CLOUD_HDD_PATH}/nextcloud/data/:/var/www/html/data
+
+    restart: unless-stopped
+    networks:
+      - data-services
+    depends_on:
+      - postgres-nextcloud
+      - redis-nextcloud
+    secrets:
+      - nextcloud_admin_password
+      - nextcloud_admin_user
+      - postgres_nextcloud_db
+      - postgres_password
+      - postgres_user
+
+#immich photos
+#
+  #database
+  immich-database:
+    container_name: immich-database
+    image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    environment:
+      - TZ=${TIMEZONE}
+      - POSTGRES_DB_FILE=/run/secrets/postgres_immich_db
+      - POSTGRES_USER_FILE=/run/secrets/postgres_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
+      - POSTGRES_INITDB_ARGS=--data-checksums
+    volumes:
+      - ${VOLUMES_PATH}/data-services/immich/pgdata:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s  
+    command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
+    restart: unless-stopped
+    networks:
+      - data-services
+    secrets:
+      - postgres_immich_db
+      - postgres_password
+      - postgres_user
+
+  #broker
+  immich-redis:
+    container_name: immich-redis
+    image: redis:7.2.5
+    volumes:
+      - ${VOLUMES_PATH}/data-services/immich/redis:/data
+    healthcheck:
+      test: redis-cli ping || exit 1
+    restart: unless-stopped
+    networks:
+      - data-services
+
+  #immich server
+  immich-server:
+    container_name: immich-server
+    image: ghcr.io/immich-app/immich-server:release 
+    environment:
+      - TZ=${TIMEZONE}
+      - DB_HOSTNAME=immich-database
+      - DB_DATABASE_NAME_FILE=/run/secrets/postgres_immich_db
+      - DB_USERNAME_FILE=/run/secrets/postgres_user
+      - DB_PASSWORD_FILE=/run/secrets/postgres_password
+      - REDIS_HOSTNAME=immich-redis
+    volumes:
+      - ${CLOUD_HDD_PATH}/immich/data/:/usr/src/app/upload
+      - ${VOLUMES_PATH}/data-services/immich/app/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 2283:3001
+    depends_on:
+      - immich-redis
+      - immich-database
+    restart: unless-stopped
+    networks:
+      - data-services
+    devices:
+      - /dev/dri:/dev/dri
+    secrets:
+      - postgres_immich_db
+      - postgres_password
+      - postgres_user
+  #immich machine learning
+  immich-machine-learning:
+    container_name: immich-machine-learning
+    image: ghcr.io/immich-app/immich-machine-learning:release-openvino #HW ACCELERATION OPEN-VINO
+    environment:
+      - NEOReadDebugKeys=1
+      - OverrideGpuAddressSpace=48
+    volumes:
+      - ${CLOUD_HDD_PATH}/immich/data/model-cache:/cache
+      - /dev/bus/usb:/dev/bus/usb # HW ACCELERATION OPEN-VINO #HW ACCELERATION OPEN-VINO
+    restart: unless-stopped
+    networks:
+      - data-services
+    device_cgroup_rules: # HW ACCELERATION OPEN-VINO
+      - "c 189:* rmw" # HW ACCELERATION OPEN-VINO
+    devices: # HW ACCELERATION OPEN-VINO
+      - /dev/dri:/dev/dri # HW ACCELERATION OPEN-VINO
+
+
+secrets:
+  nextcloud_admin_password:
+    file: /docker-volumes/secrets/nextcloud_admin_password.txt # put admin password to this file
+  nextcloud_admin_user:
+    file: /docker-volumes/secrets/nextcloud_admin_user.txt # put admin username to this file
+  postgres_nextcloud_db:
+    file: /docker-volumes/secrets/postgres_nextcloud_db.txt # put postgresql db name to this file
+  postgres_immich_db:
+    file: /docker-volumes/secrets/postgres_immich_db.txt # put postgresql db name to this file
+  postgres_password:
+    file: /docker-volumes/secrets/postgres_password.txt # put postgresql password to this file
+  postgres_user:
+    file: /docker-volumes/secrets/postgres_user.txt # put postgresql username to this file
+  smtp_password:
+    file: /docker-volumes/secrets/smtp_password.txt
