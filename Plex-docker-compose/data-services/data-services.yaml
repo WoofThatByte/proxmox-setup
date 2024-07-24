@@ -171,10 +171,10 @@ services:
   #immich machine learning
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:release-openvino #HW ACCELERATION OPEN-VINO
+    image: ghcr.io/immich-app/immich-machine-learning:release-openvino #HW ACCELERATION OPEN-VINO for Iris Xe 
     environment:
-      - NEOReadDebugKeys=1
-      - OverrideGpuAddressSpace=48
+      - NEOReadDebugKeys=1 #fix for OPENVINO
+      - OverrideGpuAddressSpace=48 #fix for OPENVINO
     volumes:
       - ${CLOUD_HDD_PATH}/immich/data/model-cache:/cache
       - /dev/bus/usb:/dev/bus/usb # HW ACCELERATION OPEN-VINO #HW ACCELERATION OPEN-VINO
