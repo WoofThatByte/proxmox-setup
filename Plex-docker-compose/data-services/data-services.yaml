@@ -141,7 +141,7 @@ services:
   #immich server
   immich-server:
     container_name: immich-server
-    image: ghcr.io/immich-app/immich-server:release 
+    image: ghcr.io/immich-app/immich-server:v1.109.2 
     environment:
       - TZ=${TIMEZONE}
       - DB_HOSTNAME=immich-database
@@ -171,7 +171,7 @@ services:
   #immich machine learning
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:release-openvino #HW ACCELERATION OPEN-VINO for Iris Xe 
+    image: ghcr.io/immich-app/immich-machine-learning:v1.109.2-openvino #HW ACCELERATION OPEN-VINO for Iris Xe 
     environment:
       - NEOReadDebugKeys=1 #fix for OPENVINO
       - OverrideGpuAddressSpace=48 #fix for OPENVINO
