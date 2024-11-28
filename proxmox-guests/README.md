@@ -40,7 +40,7 @@
     Installed using <a href="https://tteck.github.io/Proxmox/#wireguard-lxc">tteck</a> script.
   </p>
   <p align="left">
-    Run <code>nano /etc/pivpn/wireguard/setupVars.conf</code> in wireguard's shell. Change <code>pivpnHOST</code> with router DNS or router static ip. Example
+    Run <code>nano /etc/pivpn/wireguard/setupVars.conf</code> in wireguard's shell. Change <code>pivpnHOST</code> with router dynamic DNS or router static ip. Example
 
     pivpnHOST:provider.go.net
   </p>
