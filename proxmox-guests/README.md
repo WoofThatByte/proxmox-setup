@@ -63,6 +63,10 @@
   <p align="left">
   Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">link</a> for more details.
   </p>
+## Pi-Hole
+  <p align="left">
+    Installed using <a href="https://community-scripts.github.io/ProxmoxVE/scripts?id=pihole">tteck</a> script.
+  </p>
 
 # ROUTER setup
 <p align="left">
