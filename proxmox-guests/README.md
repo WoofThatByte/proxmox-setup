@@ -83,11 +83,11 @@
 </p>
 <p align="left">
   Forward port: </br>
-  1. <code>Nginx</code>: </br>
-  Service name: Nginx-proxy-manager, Device IP Address: nginx_ip, external port: 80, internal port: 80. </br>
-  Service name: Nginx-proxy-manager2, Device IP Address: nginx_ip, external port: 443, internal port: 443 </br>
+  1. <code>Nginx</code> OR <code>Traefik</code>: </br>
+  Service name: reverse_proxy, Device IP Address: nginx_OR_traefik_ip, external port: 80, internal port: 80. </br>
+  Service name: reverse_proxy_secured, Device IP Address: nginx_OR_traefik_ip, external port: 443, internal port: 443 </br>
   2. <code>Wireguard</code>: </br>
   Service name: wireguard, Device IP Address: wireguard_ip, external port: 51820, internal port: 51820 </br>
   3. <code>Plex</code>: </br>
-  Service name: plex, Device IP Address: NginxProxyManager_ip, external port: 32400, internal port: 32400 </br>
+  Service name: plex, Device IP Address: Plex'sVM_ip, external port: 32400, internal port: 32400 </br>
 </p>
