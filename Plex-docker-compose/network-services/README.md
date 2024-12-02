@@ -1,3 +1,9 @@
 # Environment Variables
 
 TIMEZONE=Europe/Bucharest
+VOLUMES_PATH=/docker-volumes
+CF_EMAIL=CLOUDFLARE_EMAIL
+CF_DNS_API_TOKEN=CLOUDFLARE_API_TOKEN
+DOMAIN_URL=example.net
+TRAEFIK_SUBDOMAIN=traefik-dashboard
+BASIC_AUTH=USER:PASSWORD
