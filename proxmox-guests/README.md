@@ -72,7 +72,7 @@
     Steps to Add a Wildcard in Pi-hole using <code>dnsmasq.</code> For example <code>*.local.test.net</code>:</br>
     1. Navigate to the Configuration Directory: Go to the directory where Pi-hole stores its dnsmasq configuration files: <code>cd /etc/dnsmasq.d/</code></br>
     2. Create a Custom Configuration File: <code>sudo nano 02-wildcards.conf</code> </br>
-    3. Block a Domain and All Subdomains: To block <code>*.local.test.net</code> and all its subdomains: <code>address=/*.local.test.net/192.168.0.10</code></br> Where IP address 192.168.0.10 points to VM machine that hosts Traefik. </br>
+    3. Block a Domain and All Subdomains: To block <code>*.local.test.net</code> and all its subdomains: <code>address=/*.local.test.net/192.168.0.10</code></br> Where IP address 192.168.0.10 points to VM machine that hosts Traefik. Docker in my case. </br>
     4. Save the File </br>
     5. Restart Pi-hole DNS Service: Restart the dnsmasq service for the changes to take effect: <code>sudo systemctl restart pihole-FTL</code>
   </p>
