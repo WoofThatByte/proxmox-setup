@@ -61,7 +61,7 @@
 
 ## UbuntuMediaServer -LXC
   <p align="left">
-  Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker">link</a> for more details.
+  Installed using <a href="https://tteck.github.io/Proxmox/#ubuntu-lxc">tteck</a> script. Only Ubuntu OS. Docker and Portainer have been manually installed. Please refer to this <a href="https://github.com/WoofThatByte/proxmox-setup/tree/main/Plex-docker-compose">link</a> for more details.
   </p>
   
 ## Pi-Hole
