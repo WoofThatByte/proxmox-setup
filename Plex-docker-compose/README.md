@@ -99,7 +99,10 @@ LXC/VM shell:</br></br>
         overseerr
     </td>
     <td>plex</td>
-    <td>flaresolverr</td>
+    <td>
+       flaresolverr</br>
+       traefik</br>
+    </td>
     <td>
         dockerproxy</br>
         filebrowser</br>
@@ -113,6 +116,10 @@ LXC/VM shell:</br></br>
          nextcloud-app</br>
          postgres-nextcloud</br>
          redis-nextcloud</br>
+         immich-database</br>
+         immich-machine-learning</br>
+         immich-redis</br>
+         immich-server</br>
     </td>
   </tr>
 </table>
