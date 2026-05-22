@@ -6,7 +6,7 @@ networks:
 
 services:
   dockerproxy:
-    image: ghcr.io/tecnativa/docker-socket-proxy:0.2.0
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.3.0
     container_name: dockerproxy
     ports:
       - 2375:2375
@@ -84,7 +84,7 @@ services:
 
 # file sharing service
   pairdrop:
-    image: linuxserver/pairdrop:1.10.9
+    image: linuxserver/pairdrop:1.11.2
     container_name: pairdrop 
     ports:
       - 3000:3000
@@ -100,7 +100,7 @@ services:
       - utility-services
 # movie converter from x264 to x265 service
   tdarr:
-    image: ghcr.io/haveagitgat/tdarr:2.23.01
+    image: ghcr.io/haveagitgat/tdarr:2.58.01
     container_name: tdarr
     ports:
       - 8265:8265 # webUI port
@@ -123,10 +123,13 @@ services:
       - utility-services
   # node for movie converter service Tdarr. Important!
   tdarr-node:
-    image: ghcr.io/haveagitgat/tdarr_node:2.23.01
+    image: ghcr.io/haveagitgat/tdarr_node:2.58.01
     container_name: tdarr-node
     network_mode: service:tdarr
+
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
       - UMASK_SET=002
       - nodeName=MyExternalNode
@@ -141,9 +144,10 @@ services:
       - ${MEDIA_HDD_PATH}/data/tdarr_cache:/temp
     devices:
       - /dev/dri:/dev/dri
+      
 #changedetection
   changedetection.io:
-    image: linuxserver/changedetection.io:0.46.01
+    image: linuxserver/changedetection.io:0.49.6
     container_name: changedetection
     ports:
       - 5000:5000
@@ -158,7 +162,7 @@ services:
     restart: unless-stopped
 #selenium
   standalone-chromium:
-    image: selenium/standalone-chromium:4.22.0
+    image: selenium/standalone-chromium:4.29.0
     container_name: standalone-chromium
     ports:
       - 4444:4444
