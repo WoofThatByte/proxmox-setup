@@ -24,7 +24,7 @@ services:
       
 # reverse proxy
   traefik:
-    image: traefik:v3.2.0
+    image: traefik:v3.7.0
     container_name: traefik
     security_opt:
       - no-new-privileges:true
