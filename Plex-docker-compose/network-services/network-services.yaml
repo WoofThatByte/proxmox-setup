@@ -9,7 +9,7 @@ services:
 
   #  works   with  prowlarr
   flaresolverr:
-    image: ghcr.io/flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:v3.5.2
     container_name: flaresolverr
     ports:
       - "8191:8191"
@@ -24,7 +24,7 @@ services:
       
 # reverse proxy
   traefik:
-    image: traefik:v3.7.0
+    image: traefik:v3.7.13
     container_name: traefik
     security_opt:
       - no-new-privileges:true
@@ -45,7 +45,7 @@ services:
     restart: unless-stopped
     networks:
       - network-services
-  
+
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
