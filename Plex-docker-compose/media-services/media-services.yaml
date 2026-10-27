@@ -7,9 +7,10 @@ networks:
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.43.2
+    image: lscr.io/linuxserver/plex:1.43.5
     container_name: plex
     #network_mode: host
+    privileged: true
     ports:
       - 32400:32400
     environment:
