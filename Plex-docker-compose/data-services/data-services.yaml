@@ -156,7 +156,7 @@ services:
   #immich server
   immich-server:
     container_name: immich-server
-    image: ghcr.io/immich-app/immich-server:v3.3.1
+    image: ghcr.io/immich-app/immich-server:v3.3.5
     environment:
       - TZ=${TIMEZONE}
       - DB_HOSTNAME=immich-database
@@ -186,7 +186,7 @@ services:
   #immich machine learning
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:v3.3.1-openvino  #HW ACCELERATION OPEN-VINO for Iris Xe 
+    image: ghcr.io/immich-app/immich-machine-learning:v3.3.5-openvino  #HW ACCELERATION OPEN-VINO for Iris Xe 
     volumes:
       - ${CLOUD_HDD_PATH}/immich/data/model-cache:/cache
       - /dev/bus/usb:/dev/bus/usb # HW ACCELERATION OPEN-VINO #HW ACCELERATION OPEN-VINO
