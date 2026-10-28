@@ -23,8 +23,6 @@ services:
     image: postgres:17.11
     container_name: postgres-nextcloud
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${TIMEZONE}
       - POSTGRES_DB_FILE=/run/secrets/postgres_nextcloud_db
       - POSTGRES_USER_FILE=/run/secrets/postgres_user
