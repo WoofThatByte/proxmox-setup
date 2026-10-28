@@ -101,7 +101,7 @@ services:
   #database
   immich-database:
     container_name: immich-database
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0
+    image: ghcr.io/immich-app/postgres:16-vectorchord0.4.3-pgvectors0.2.0
     environment:
       - TZ=${TIMEZONE}
       - POSTGRES_DB_FILE=/run/secrets/postgres_immich_db
