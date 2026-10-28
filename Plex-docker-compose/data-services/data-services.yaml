@@ -45,7 +45,7 @@ services:
     
   # app
   nextcloud:
-    image: nextcloud:34.0.5
+    image: nextcloud:35.0.2
     container_name: nextcloud-app
     ports:
       - 8089:80
