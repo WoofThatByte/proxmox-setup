@@ -1,55 +1,67 @@
-"packageRules": [
-  {
-    "matchDatasources": ["docker"],
-    "matchPackageNames": [
-      "nextcloud",
-      "library/nextcloud",
-      "docker.io/library/nextcloud"
-    ],
-    "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
-  },
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
 
-  {
-    "matchDatasources": ["docker"],
-    "matchPackageNames": [
-      "ghcr.io/immich-app/postgres"
-    ],
-    "allowedVersions": "/^14-vectorchord.*$/",
-    "enabled": false
-  },
+  "enabledManagers": ["docker-compose"],
 
-  {
-    "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-    "matchPackageNames": [
-      "/^lscr.io\\/linuxserver\\//"
-    ]
-  },
-  {
-    "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-    "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
-    "matchPackageNames": [
-      "/^linuxserver\\/overseerr/"
-    ]
-  },
-  {
-    "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-    "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
-    "matchPackageNames": [
-      "/^linuxserver\\/tautulli/"
-    ]
-  },
-  {
-    "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-    "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/",
-    "matchPackageNames": [
-      "/^linuxserver\\/deluge/"
-    ]
-  },
-  {
-    "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
-    "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d{1,3}$/",
-    "matchPackageNames": [
-      "/^linuxserver\\/changedetection.io/"
-    ]
-  }
-]
+  "fileMatch": [
+    "\\.ya?ml$",
+    "(^|/)docker-compose\\.ya?ml$",
+    "(^|/)compose\\.ya?ml$"
+  ],
+
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "nextcloud",
+        "library/nextcloud",
+        "docker.io/library/nextcloud"
+      ],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "ghcr.io/immich-app/postgres"
+      ],
+      "enabled": false
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "matchPackageNames": [
+        "/^lscr.io\\/linuxserver\\//"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/overseerr/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/tautulli/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/deluge/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d{1,3}$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/changedetection.io/"
+      ]
+    }
+  ]
+}
