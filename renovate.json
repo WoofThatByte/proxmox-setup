@@ -4,6 +4,8 @@
     "config:recommended"
   ],
 
+  "enabledManagers": ["docker-compose"],
+
   "fileMatch": [
     "\\.ya?ml$",
     "(^|/)docker-compose\\.ya?ml$",
