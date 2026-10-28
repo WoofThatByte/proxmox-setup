@@ -3,6 +3,13 @@
   "extends": [
     "config:recommended"
   ],
+
+  "fileMatch": [
+    "\\.ya?ml$",
+    "(^|/)docker-compose\\.ya?ml$",
+    "(^|/)compose\\.ya?ml$"
+  ],
+
   "packageRules": [
     {
       "matchDatasources": ["docker"],
