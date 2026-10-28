@@ -8,7 +8,7 @@
       "matchPackageNames": [
         "nextcloud"
       ],
-      "versioning": "docker"
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
       "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
