@@ -5,9 +5,8 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": [
-        "nextcloud"
-      ],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["nextcloud"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$"
     },
     {
