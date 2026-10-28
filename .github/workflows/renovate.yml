@@ -1,0 +1,19 @@
+name: Renovate Auto-Update
+
+on:
+  workflow_dispatch: # Îți permite să-l pornești manual oricând vrei
+  schedule:
+    - cron: '0 6 * * 1' # Rulează automat în fiecare luni la ora 06:00 UTC
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v41.0.1
+        with:
+          configurationFile: .github/renovate.json
+          token: ${{ secrets.GITHUB_TOKEN }}
