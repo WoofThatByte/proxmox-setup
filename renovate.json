@@ -5,6 +5,12 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": [
+        "nextcloud"
+      ],
+      "versioning": "semver"
+    },
+    {
       "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "matchPackageNames": [
         "/^lscr.io\\/linuxserver\\//"
