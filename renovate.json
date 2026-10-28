@@ -3,20 +3,40 @@
   "extends": [
     "config:recommended"
   ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": ["(^|/).*\\.yaml$", "(^|/).*\\.yml$"],
-      "matchStrings": [
-        "image:\\s*[\"']?(?<depName>[^\\s:]+):(?<currentValue>[^\"'\\s]+)[\"']?"
-      ],
-      "datasourceTemplate": "docker"
-    }
-  ],
   "packageRules": [
     {
-      "matchPackageNames": ["*"],
-      "labels": ["dependencies", "docker"]
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "matchPackageNames": [
+        "/^lscr.io\\/linuxserver\\//"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/overseerr/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/tautulli/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/deluge/"
+      ]
+    },
+    {
+      "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d{1,3}$/",
+      "matchPackageNames": [
+        "/^linuxserver\\/changedetection.io/"
+      ]
     }
   ]
 }
