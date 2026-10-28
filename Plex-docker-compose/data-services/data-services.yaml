@@ -8,7 +8,7 @@ services:
 # file sharing service using Nextcloud
 # broker 
   redis-nextcloud:
-    image: redis:8.6.3
+    image: redis:8.10.3
     container_name: redis-nextcloud
     environment:
       - TZ=${TIMEZONE}
@@ -144,7 +144,7 @@ services:
   #broker
   immich-redis:
     container_name: immich-redis
-    image: redis:8.6.3
+    image: redis:8.10.3
     volumes:
       - ${VOLUMES_PATH}/data-services/immich/redis:/data
     healthcheck:
