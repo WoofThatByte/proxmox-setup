@@ -31,7 +31,7 @@ services:
       - ${VOLUMES_PATH}/data-services/nextcloud/pgdata:/var/lib/postgresql
       - ${VOLUMES_PATH}/data-services/nextcloud/pg_backups:/backups
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      test: ["CMD-SHELL", "pg_isready", "-d", "nextcloud_db"]
       interval: 30s
       timeout: 60s
       retries: 5
