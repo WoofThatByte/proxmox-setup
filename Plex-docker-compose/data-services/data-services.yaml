@@ -8,7 +8,7 @@ services:
 # file sharing service using Nextcloud
 # broker 
   redis-nextcloud:
-    image: redis:8.10.3
+    image: redis:8.6.3
     container_name: redis-nextcloud
     environment:
       - TZ=${TIMEZONE}
@@ -46,7 +46,7 @@ services:
     
   # app
   nextcloud:
-    image: nextcloud:34.0.5
+    image: nextcloud:35.0.2
     container_name: nextcloud-app
     ports:
       - 8089:80
