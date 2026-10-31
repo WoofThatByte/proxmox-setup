@@ -89,7 +89,7 @@ services:
       - ${VOLUMES_PATH}/utility-services/filebrowser/files:/folder
       - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
     ports:
-      - "8300:8080"
+      - "8300:80"
     environment:
       - PUID=1000
       - PGID=1000
