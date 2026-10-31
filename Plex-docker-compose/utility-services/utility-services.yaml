@@ -65,22 +65,38 @@ services:
       start_period: 20s
 
 # file browser for the server
+  # filebrowser:
+#     image: filebrowser/filebrowser:v2.63.23
+#     container_name: filebrowser
+#     ports:
+#       - 8300:80
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=${TIMEZONE}
+#     volumes:
+#       - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
+#       - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
+#       - /:/srv
+#     restart: unless-stopped
+#     networks:
+#       - utility-services
+
+      
   filebrowser:
-    image: filebrowser/filebrowser:v2.63.23
-    container_name: filebrowser
-    ports:
-      - 8300:80
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIMEZONE}
+    image: ghcr.io/gtsteffaniak/filebrowser:v2.0.2-stable
     volumes:
-      - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
-      - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
-      - /:/srv
+      - ${VOLUMES_PATH}/utility-services/filebrowser/files:/folder
+      - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
+    ports:
+      - "8300:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8300/health"]
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
     restart: unless-stopped
-    networks:
-      - utility-services
 
 # file sharing service
   pairdrop:
