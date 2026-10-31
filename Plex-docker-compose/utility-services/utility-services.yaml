@@ -98,6 +98,7 @@ services:
     restart: unless-stopped 
     networks:
       - utility-services
+      
 # movie converter from x264 to x265 service
   tdarr:
     image: ghcr.io/haveagitgat/tdarr:3.04.00
@@ -121,12 +122,12 @@ services:
       - ${MEDIA_HDD_PATH}/data/tdarr_cache:/temp
     networks:
       - utility-services
+      
   # node for movie converter service Tdarr. Important!
   tdarr-node:
     image: ghcr.io/haveagitgat/tdarr_node:3.04.00
     container_name: tdarr-node
     network_mode: service:tdarr
-
     environment:
       - PUID=1000
       - PGID=1000
