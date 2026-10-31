@@ -66,6 +66,7 @@ services:
  
   filebrowser:
     image: ghcr.io/gtsteffaniak/filebrowser:stable
+    container_name: filebrowser
     volumes:
       - ${VOLUMES_PATH}/utility-services/filebrowser/files:/folder
       - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
