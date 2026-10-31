@@ -77,7 +77,7 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
       - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
-      - /:/srv
+      - ${VOLUMES_PATH}:/srv
     restart: unless-stopped
     networks:
       - utility-services
