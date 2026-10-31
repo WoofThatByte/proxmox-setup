@@ -178,7 +178,7 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
-     healthcheck:
+    healthcheck:
       test: ["CMD", "bash", "-c", "nc -z localhost 8080"]
       interval: 30s
       timeout: 10s
