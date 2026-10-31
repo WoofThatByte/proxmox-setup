@@ -84,7 +84,7 @@ services:
 
       
   filebrowser:
-    image: ghcr.io/gtsteffaniak/filebrowser:v2.0.2-stable
+    image: ghcr.io/gtsteffaniak/filebrowser:v2.0.2
     volumes:
       - ${VOLUMES_PATH}/utility-services/filebrowser/files:/folder
       - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
