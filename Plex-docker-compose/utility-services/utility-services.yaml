@@ -72,9 +72,6 @@ services:
       - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
     ports:
       - "8300:80"
-    environment:
-      - PUID=0
-      - PGID=0
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8300/health"]
       interval: 30s
