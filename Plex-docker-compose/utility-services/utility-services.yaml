@@ -68,7 +68,7 @@ services:
     image: ghcr.io/gtsteffaniak/filebrowser:stable
     container_name: filebrowser
     volumes:
-      - ${MEDIA_HDD_PATH}:/folder
+      - ${MEDIA_HDD_PATH}/data:/folder
       - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
     ports:
       - "8300:80"
