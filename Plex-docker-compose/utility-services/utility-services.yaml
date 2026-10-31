@@ -82,7 +82,21 @@ services:
 #     networks:
 #       - utility-services
 
-
+      
+  filebrowser:
+    image: ghcr.io/gtsteffaniak/filebrowser:v2.0.2-stable
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/filebrowser/files:/folder
+      - ${VOLUMES_PATH}/utility-services/filebrowser/data:/home/filebrowser/data
+    ports:
+      - "8300:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8300/health"]
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
+    restart: unless-stopped
 
 # file sharing service
   pairdrop:
