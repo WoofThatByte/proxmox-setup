@@ -137,27 +137,28 @@ services:
       retries: 3
       start_period: 1m00s
 
-  deluge:
-    image: lscr.io/linuxserver/deluge:2.2.0
-    container_name: deluge
-    ports:
-      - 8112:8112
-    environment:
-      - TZ=${TIMEZONE}
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - ${VOLUMES_PATH}/media-management-services/deluge:/config
-      - ${MEDIA_HDD_PATH}/data/downloads:/downloads
-    restart: unless-stopped
-    networks:
-      - media-management-services
-    healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
-      interval: 1m00s
-      timeout: 15s
-      retries: 3
-      start_period: 1m00s
+# deluge:
+#   image: lscr.io/linuxserver/deluge:2.2.0
+#   container_name: deluge
+#   ports:
+#     - 8112:8112
+#   environment:
+#     - TZ=${TIMEZONE}
+#     - PUID=1000
+#     - PGID=1000
+#   volumes:
+#     - ${VOLUMES_PATH}/media-management-services/deluge:/config
+#     - ${MEDIA_HDD_PATH}/data/downloads:/downloads
+#   restart: unless-stopped
+#   networks:
+#     - media-management-services
+#   healthcheck:
+#     test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+#     interval: 1m00s
+#     timeout: 15s
+#     retries: 3
+#     start_period: 1m00s
+
 
   qbittorrent:
     image: linuxserver/qbittorrent:5.3.0
