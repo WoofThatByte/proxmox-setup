@@ -123,7 +123,7 @@ services:
       
   # node for movie converter service Tdarr. Important!
   tdarr-node:
-    image: ghcr.io/haveagitgat/tdarr_node:3.04.00
+    image: ghcr.io/haveagitgat/tdarr_node:3.06.00
     container_name: tdarr-node
     network_mode: service:tdarr
     environment:
