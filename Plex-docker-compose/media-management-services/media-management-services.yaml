@@ -137,7 +137,7 @@ services:
       retries: 3
 
   qbittorrent:
-    image: linuxserver/qbittorrent:5.3.0
+    image: linuxserver/qbittorrent:20.04.1
     container_name: qbittorrent
     ports:
       - 8080:8080
