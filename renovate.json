@@ -45,7 +45,7 @@
       "versioning": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/",
       "matchPackageNames": [
-        "/^linuxserver\\/overseerr/"
+        "/^linuxserver\\/seerr/"
       ]
     },
     {
