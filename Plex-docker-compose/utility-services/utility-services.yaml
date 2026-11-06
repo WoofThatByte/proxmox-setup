@@ -146,7 +146,7 @@ services:
       
 #changedetection
   changedetection.io:
-    image: linuxserver/changedetection.io:0.60.10
+    image: linuxserver/changedetection.io:0.70.2
     container_name: changedetection
     ports:
       - 5000:5000
