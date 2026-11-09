@@ -99,7 +99,7 @@ services:
       
 # movie converter from x264 to x265 service
   tdarr:
-    image: ghcr.io/haveagitgat/tdarr:3.06.00
+    image: ghcr.io/haveagitgat/tdarr:3.07.00
     container_name: tdarr
     ports:
       - 8265:8265 # webUI port
