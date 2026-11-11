@@ -94,7 +94,7 @@ services:
 
 
   tautulli:
-    image: lscr.io/linuxserver/tautulli:2.18.2
+    image: lscr.io/linuxserver/tautulli:2.19.1
     container_name: tautulli
     ports:
       - 8181:8181
